@@ -1,0 +1,63 @@
+<resources>
+  <dimen name="activity_horizontal_margin">16dp</dimen>
+  <dimen name="activity_vertical_margin">16dp</dimen>
+
+  <!-- MainActivity底栏相关数值 -->
+  <dimen name="tab_bar_height">49dp</dimen>
+
+  <!-- 标题栏栏相关数值 -->
+  <dimen name="title_bar_height">44dp</dimen>
+  <dimen name="title_bar_padding_top">0dp</dimen>
+  <dimen name="title_text_size">@dimen/font_big</dimen>
+  <dimen name="title_bar_back_size">44dp</dimen>
+  <dimen name="title_bar_icon_size">44dp</dimen>
+  <dimen name="search_bar_height">44dp</dimen>
+
+  <!-- MainActivity底栏相关数值 -->
+  <dimen name="pop_x_offset">-14dp</dimen>
+  <dimen name="pop_y_offset">4dp</dimen>
+
+  <!-- 字体数值 -->
+  <dimen name="font_big">18dp</dimen>
+  <dimen name="font_normal">15dp</dimen>
+  <dimen name="font_small">12dp</dimen>
+  <dimen name="font_title">@dimen/font_big</dimen>
+
+  <!-- 按钮相关数值 -->
+  <dimen name="button_normal_height">44dp</dimen>
+
+  <!-- 头像数值 -->
+  <dimen name="portrait_mini">36dp</dimen>
+  <dimen name="portrait_small">40dp</dimen>
+  <dimen name="portrait_normal">44dp</dimen>
+  <dimen name="portrait_big">70dp</dimen>
+  <dimen name="portrait_large">110dp</dimen>
+
+  <!-- 间距 -->
+  <dimen name="normal_margin">15dp</dimen>
+
+  <!-- 预约详情图片 -->
+  <dimen name="pic_size">60dp</dimen>
+
+  <dimen name="normal_item_height_padding">10dp</dimen>
+
+  <dimen name="wheel_view_height">200dp</dimen>
+
+  <dimen name="indicator_view_width">70dp</dimen>
+
+  <dimen name="feedback_view_height">150dp</dimen>
+
+  <!-- indicator -->
+  <dimen name="indicator_margin">8dp</dimen>
+  <dimen name="indicator_radius">6dp</dimen>
+
+  <dimen name="delete_button_width">75dp</dimen>
+  <dimen name="double_delete_button_width">150dp</dimen>
+  <dimen name="clearedittext_drawable_padding">15dp</dimen>
+
+  <dimen name="mainpage_header_min_height">132dp</dimen>
+
+  <dimen name="item_divider_height">22dp</dimen>
+
+
+</resources>

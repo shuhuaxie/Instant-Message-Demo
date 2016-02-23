@@ -1,0 +1,32 @@
+<resources>
+
+  <dimen name="height_top_bar">48dp</dimen>
+  <dimen name="padding_search_bar">5dp</dimen>
+  <dimen name="height_row_weixin">59dp</dimen>
+  <dimen name="size_avatar">44dp</dimen>
+  <dimen name="margin_chat_activity">15dp</dimen>
+  <dimen name="field_textsize">14sp</dimen>
+  <dimen name="field_margin_right">5dp</dimen>
+  <dimen name="call_button_padding_vertical">10dp</dimen>
+  <dimen name="call_button_padding_left">25dp</dimen>
+  <dimen name="call_button_padding_right">25dp</dimen>
+  <dimen name="sidebar_text_size">10dp</dimen>
+  <dimen name="image_thumbnail_size">100dp</dimen>
+  <dimen name="image_thumbnail_spacing">1dp</dimen>
+  <dimen name="chat_message_margin_to_edge">50dp</dimen>
+  <dimen name="chat_image_message_max_width">120dp</dimen>
+  <dimen name="chat_image_message_height">120dp</dimen>
+
+  <dimen name="im_top_padding">10dp</dimen>
+  <dimen name="im_time_top_margin">20dp</dimen>
+  <dimen name="im_message_portrait_margin">5dp</dimen>
+  <dimen name="im_message_status_margin">5dp</dimen>
+  <dimen name="im_message_txt_padding">10dp</dimen>
+  <dimen name="im_message_txt_to_arrow_padding">17.5dp</dimen>
+  <dimen name="im_edittext_min_height">36dp</dimen>
+  <dimen name="im_edittext_max_height">92sp</dimen>
+  <dimen name="im_record_message_img_size">40dp</dimen>
+  <dimen name="im_record_message_img_margin">5dp</dimen>
+  <dimen name="im_new_msg_count_tip_min_size">17dp</dimen>
+  <dimen name="im_retry_size">40dp</dimen>
+</resources>

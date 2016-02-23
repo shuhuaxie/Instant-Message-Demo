@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:fitsSystemWindows="true"
+              android:clipToPadding="false"
+    >
+
+  <RelativeLayout
+      style="@style/title_bar_background_style"
+      android:paddingTop="0dp"
+      android:layout_height="44dp"
+      >
+
+    <ImageView
+        android:id="@+id/back"
+        style="@style/back_style"/>
+
+    <TextView
+        style="@style/navbar_text_style"
+        android:textSize="@dimen/font_title"
+        android:layout_centerInParent="true"
+        android:id="@+id/title_tv"/>
+
+      <include
+          layout="@layout/divider_line"
+          android:layout_gravity="bottom"
+          android:layout_width="match_parent"
+          android:layout_height="0.5dp"
+          android:layout_alignParentBottom="true"/>
+
+  </RelativeLayout>
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:background="@color/background_color">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+          android:id="@+id/chat_swipe_layout"
+          android:layout_height="match_parent"
+          android:layout_width="match_parent">
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:listSelector="#00000000"
+                android:scrollbarStyle="outsideOverlay"
+                android:transcriptMode="alwaysScroll"/>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </RelativeLayout>
+
+  <LinearLayout
+      android:id="@+id/bar_bottom"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:background="@drawable/text_field_background"
+      android:gravity="center_vertical">
+
+      <LinearLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="0.5dp"
+        android:gravity="center_vertical">
+
+      <ImageView
+          android:id="@+id/btn_set_mode_voice"
+          android:layout_width="58dp"
+          android:layout_height="match_parent"
+          android:src="@drawable/chat_btn_voice"
+          android:visibility="visible"
+          android:padding="10dp"
+          android:scaleType="center"/>
+
+      <ImageView
+          android:id="@+id/btn_set_mode_keyboard"
+          android:layout_width="58dp"
+          android:layout_height="match_parent"
+          android:src="@drawable/chat_btn_keyboard"
+          android:visibility="gone"
+          android:padding="10dp"
+          android:scaleType="center"/>
+
+      <com.huimei.doctor.widget.RecordButton
+          android:id="@+id/btn_press_to_speak"
+          android:layout_width="0dp"
+          android:layout_height="36dp"
+          android:layout_weight="1"
+          android:visibility="gone"
+          android:gravity="center"
+          android:textSize="@dimen/font_normal"
+          android:text="按住说话"
+          android:layout_marginTop="7dp"
+          android:layout_marginBottom="7dp">
+      </com.huimei.doctor.widget.RecordButton>
+
+      <RelativeLayout
+          android:id="@+id/edittext_layout"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:gravity="bottom"
+          android:paddingTop="7dp"
+          android:paddingBottom="7dp">
+
+        <EditText
+            android:id="@+id/et_sendmessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_field_input"
+            android:textSize="@dimen/font_normal"
+            android:gravity="center_vertical|left"
+            android:minHeight="@dimen/im_edittext_min_height"
+            android:maxHeight="@dimen/im_edittext_max_height"
+            android:layout_centerInParent="true"
+            android:padding="2sp"
+            />
+
+      </RelativeLayout>
+
+      <ImageView
+          android:id="@+id/btn_more"
+          android:layout_width="58dp"
+          android:layout_height="match_parent"
+          android:src="@drawable/chat_btn_more"
+          android:visibility="visible"
+          android:padding="10dp"
+          android:scaleType="center"/>
+
+      <Button
+          android:id="@+id/btn_send"
+          android:layout_width="48dp"
+          android:layout_height="match_parent"
+          android:layout_marginRight="5dp"
+          android:background="@drawable/btn_normal"
+          android:text="@string/button_send"
+          android:textColor="@android:color/white"
+          android:textSize="@dimen/font_normal"
+          android:visibility="gone"
+          android:layout_marginLeft="5dp"
+          android:layout_marginTop="7dp"
+          android:layout_marginBottom="7dp"/>
+    </LinearLayout>
+
+
+  </LinearLayout>
+    <LinearLayout
+        android:id="@+id/more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#C2d4de" />
+
+        <!-- 表情图片 -->
+
+        <LinearLayout
+            android:id="@+id/ll_face_container"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- 图片，表情，名片等按钮 -->
+
+        <LinearLayout
+            android:id="@+id/ll_btn_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/btn_picture"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/attach_picture"
+                    android:textColor="@android:color/black"
+                    android:drawableTop="@drawable/im_button_pic"/>
+
+                <TextView
+                    android:id="@+id/btn_word"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/attach_word"
+                    android:textColor="@android:color/black"
+                    android:drawableTop="@drawable/im_button_word"/>
+
+                <TextView
+                    android:id="@+id/btn_close"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/attach_clsoe"
+                    android:textColor="@android:color/black"
+                    android:drawableTop="@drawable/im_button_close"/>
+
+                <TextView
+                    android:id="@+id/btn_take_picture"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/attach_take_pic"
+                    android:textColor="@android:color/black"
+                    android:drawableTop="@drawable/im_button_camera"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/btn_location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/attach_location"
+                    android:textColor="@android:color/black"
+                    android:drawableTop="@drawable/im_button_camera"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

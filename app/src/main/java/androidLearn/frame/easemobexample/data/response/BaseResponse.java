@@ -1,0 +1,8 @@
+package androidLearn.frame.easemobexample.data.response;
+
+public class BaseResponse {
+
+  // status 不为0时,toast 显示message信息
+  public String message;
+  public int status;
+}

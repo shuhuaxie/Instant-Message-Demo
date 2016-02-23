@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="link_text_color">@color/base_color</color>
+  <color name="color_male">#ff00ddff</color>
+  <color name="color_female">#fff33e71</color>
+  <color name="conversation_divider_color">#f05d7c</color>
+</resources>

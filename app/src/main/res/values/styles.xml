@@ -1,0 +1,148 @@
+<resources>
+
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+  </style>
+
+  <style name="AppTheme.NoActionBar">
+
+  </style>
+
+  <!-- WheelView 设置选择和非选择的字体颜色 -->
+  <style name="wheel_select_font">
+    <item name="android:textSize">20dp</item>
+    <item name="android:textColor">@color/font_color_deep</item>
+  </style>
+
+  <style name="wheel_no_select_font">
+    <item name="android:textSize">17dp</item>
+    <item name="android:textColor">#603e5866</item>
+  </style>
+
+  <style name="single_line_base_style">
+    <item name="android:includeFontPadding">false</item>
+    <item name="android:singleLine">true</item>
+  </style>
+
+  <style name="portrait_style">
+    <item name="androidLearn.frame.easemobexample:border_width">1dp</item>
+    <item name="androidLearn.frame.easemobexample:border_color">#d9e5ec</item>
+  </style>
+
+
+  <style name="navbar_text_style">
+    <item name="android:textSize">@dimen/font_big</item>
+    <item name="android:textColor">@color/title_bar_text_color</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">center</item>
+  </style>
+
+
+  <style name="bottom_tabbar_text_style">
+    <item name="android:textSize">12dp</item>
+    <item name="android:layout_alignParentBottom">true</item>
+    <item name="android:layout_centerHorizontal">true</item>
+    <item name="android:textColor">@color/bottom_navbar_text_color_selector</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginBottom">3dp</item>
+  </style>
+
+
+  <style name="title_text_style">
+    <item name="android:textSize">18dp</item>
+    <item name="android:layout_centerHorizontal">true</item>
+    <item name="android:textColor">#3e5866</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+  </style>
+
+
+  <style name="normal_text_style">
+    <item name="android:textSize">15dp</item>
+    <item name="android:layout_centerHorizontal">true</item>
+    <item name="android:textColor">#97a8b6</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+  </style>
+
+
+  <style name="small_text_style">
+    <item name="android:textSize">12dp</item>
+    <item name="android:layout_centerHorizontal">true</item>
+    <item name="android:textColor">#97a8b6</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+  </style>
+
+  <style name="title_bar_background_style">
+    <item name="android:background">@color/title_bar_color</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">@dimen/title_bar_height</item>
+    <item name="android:paddingTop">@dimen/title_bar_padding_top</item>
+  </style>
+
+  <!--普通页面每一行-->
+  <style name = "tab_normal_text_style">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">44dp</item>
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:textSize">15dp</item>
+    <item name="android:textColor">@color/font_color_deep</item>
+  </style>
+
+  <style name = "tab_left_image_style">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">44dp</item>
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:layout_marginLeft">15dp</item>
+  </style>
+
+  <style name = "tab_left_text_style">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_weight">1</item>
+    <item name="android:layout_height">44dp</item>
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:layout_marginLeft">15dp</item>
+    <item name="android:textSize">15dp</item>
+    <item name="android:textColor">@color/font_color_deep</item>
+  </style>
+
+  <!--填表页面每一行-->
+  <style name = "tab_edit_title_style">
+    <item name="android:layout_width">80dp</item>
+    <item name="android:layout_height">44dp</item>
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:textSize">15dp</item>
+    <item name="android:layout_marginLeft">15dp</item>
+    <item name="android:textColor">@color/font_color_deep</item>
+  </style>
+
+  <style name = "button_style">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">44dp</item>
+    <item name="android:gravity">center</item>
+    <item name="android:layout_marginLeft">24dp</item>
+    <item name="android:layout_marginRight">24dp</item>
+    <item name="android:layout_marginTop">45dp</item>
+    <item name="android:textSize">18dp</item>
+    <item name="android:background">@drawable/button_selector</item>
+    <item name="android:textColor">#ffffff</item>
+  </style>
+
+  <style name="Theme_Menu" parent="@android:style/Theme.Dialog">
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+
+  <style name = "back_style">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">@dimen/title_bar_back_size</item>
+    <item name="android:paddingLeft">@dimen/normal_margin</item>
+    <item name="android:paddingRight">@dimen/normal_margin</item>
+    <item name="android:src">@drawable/back_selector</item>
+  </style>
+
+</resources>

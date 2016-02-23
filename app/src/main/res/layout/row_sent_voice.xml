@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/im_top_padding" >
+
+    <TextView
+        android:id="@+id/timestamp"
+        style="@style/chat_text_date_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/im_time_top_margin"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|right"
+        android:layout_marginTop="@dimen/margin_chat_activity"
+        android:weightSum="100">
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/pb_sending"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_toLeftOf="@id/tv_length"
+            />
+
+        <TextView
+            android:id="@+id/tv_delivered"
+            style="@style/chat_text_name_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/text_delivered_msg"
+            android:textSize="12sp"
+            android:layout_toLeftOf="@id/tv_length"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/tv_ack"
+            style="@style/chat_text_name_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/text_ack_msg"
+            android:textSize="12sp"
+            android:layout_toLeftOf="@id/tv_length"
+            android:visibility="gone"
+            />
+
+        <ImageView
+            android:id="@+id/msg_status"
+            android:layout_width="@dimen/im_retry_size"
+            android:layout_height="@dimen/im_retry_size"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/tv_length"
+            android:clickable="true"
+            android:src="@drawable/msg_state_failed_resend"
+            android:visibility="gone"
+            android:scaleType="center"/>
+
+        <LinearLayout
+            android:id="@+id/layout_voice"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            android:background="@drawable/chatto_bg"
+            android:layout_marginRight="@dimen/im_message_portrait_margin"
+            >
+
+            <TextView
+                android:id="@+id/tv_length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/iv_voice"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_normal"/>
+
+            <com.huimei.doctor.widget.PlayButton
+                android:id="@+id/iv_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/im_message_portrait_margin"
+
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:custom="http://schemas.android.com/apk/res-auto"
+                custom:left="false"
+                android:scaleType="fitEnd"
+                />
+        </LinearLayout>
+
+        <com.huimei.doctor.widget.PortraitView
+            style="@style/portrait_style"
+            android:id="@+id/iv_userhead"
+            android:layout_width="@dimen/size_avatar"
+            android:layout_height="@dimen/size_avatar"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/margin_chat_activity"
+            android:src="@drawable/icon"
+            android:scaleType="fitXY" />
+
+    </LinearLayout>
+
+</LinearLayout>

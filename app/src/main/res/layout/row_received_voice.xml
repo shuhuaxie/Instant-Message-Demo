@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+              android:orientation="vertical"
+    android:paddingBottom="@dimen/im_top_padding" >
+
+    <TextView
+        android:id="@+id/timestamp"
+        style="@style/chat_text_date_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/im_time_top_margin"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_chat_activity"
+        android:gravity="center_vertical"
+        android:weightSum="100">
+
+        <com.huimei.doctor.widget.PortraitView
+            style="@style/portrait_style"
+            android:id="@+id/iv_userhead"
+            android:layout_width="@dimen/size_avatar"
+            android:layout_height="@dimen/size_avatar"
+            android:layout_marginLeft="@dimen/margin_chat_activity"
+            android:src="@drawable/icon"
+            android:scaleType="fitXY" />
+
+
+
+        <LinearLayout
+            android:id="@+id/layout_voice"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@drawable/chatfrom_bg"
+            android:layout_marginLeft="@dimen/im_message_portrait_margin"
+            android:layout_weight="1">
+
+            <com.huimei.doctor.widget.PlayButton
+                android:id="@+id/iv_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/im_message_portrait_margin"
+
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:custom="http://schemas.android.com/apk/res-auto"
+                custom:left="true"
+                android:scaleType="fitStart"
+                />
+
+            <TextView
+                android:id="@+id/tv_length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textColor="@color/font_color_deep"
+                android:textSize="@dimen/font_normal"
+                android:layout_marginRight="5dp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_unread_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/tv_length"
+            android:src="@drawable/voice_unread"
+            android:visibility="gone"/>
+
+        <ProgressBar
+            android:id="@+id/pb_sending"
+            android:layout_toRightOf="@id/iv_unread_voice"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_centerVertical="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/msg_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_unread_voice"
+            android:clickable="true"
+            android:src="@drawable/msg_state_failed_resend"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

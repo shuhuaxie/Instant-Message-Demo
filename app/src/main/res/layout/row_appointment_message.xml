@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/im_top_padding" >
+
+    <TextView
+        android:id="@+id/timestamp"
+        style="@style/chat_text_date_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/im_time_top_margin"/>
+
+  <LinearLayout
+      android:id="@+id/layout_message"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/margin_chat_activity"
+      android:layout_marginLeft="@dimen/margin_chat_activity"
+      android:layout_marginRight="@dimen/margin_chat_activity"
+      android:background="@drawable/appointment_msg_bg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_tv"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/margin_chat_activity"
+        android:layout_marginRight="@dimen/margin_chat_activity"
+        android:minHeight="44dp"
+        android:textColor="@color/font_color_deep"
+        android:textSize="@dimen/font_normal"/>
+
+    <include
+        layout="@layout/divider_line"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="@dimen/item_divider_height"
+        android:textSize="@dimen/font_normal"
+        android:textColor="@color/font_color_deep"
+        android:lineSpacingExtra = "3dp"/>
+
+      <com.huimei.doctor.widget.EllipsizingTextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/detail"
+          android:layout_marginBottom="25dp"
+          android:layout_marginLeft="15dp"
+          android:layout_marginRight="15dp"
+          android:textSize="@dimen/font_normal"
+          android:textColor="@color/font_color_light"
+          android:ellipsize="end"
+          android:maxLines="2"/>
+
+      <include
+        layout="@layout/divider_line"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:id="@+id/layout_link"
+        android:duplicateParentState="true">
+
+      <TextView
+          android:layout_width="0dp"
+          android:layout_height="44dp"
+          android:id="@+id/link"
+          android:gravity="center_vertical"
+          android:singleLine="true"
+          android:layout_weight="1"
+          android:textColor="@color/font_color_deep"
+          android:textSize="@dimen/font_normal"/>
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_weight="0"
+          android:src="@drawable/arrow_selector"
+          android:layout_marginLeft="15dp"
+          android:duplicateParentState="true"/>
+    </LinearLayout>
+
+  </LinearLayout>
+
+</LinearLayout>

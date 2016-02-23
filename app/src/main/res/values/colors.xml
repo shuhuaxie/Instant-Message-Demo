@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <color name="base_color">#1482f0</color>
+
+  <!--background color -->
+  <color name="background_color">#edf1f5</color>
+  <color name="tab_background_color_normal">#ffffff</color>
+  <color name="tab_background_color_pressed">#ffdbe6ec</color><!-- 点击整行改变背景颜色 -->
+  <color name="mongolia_layer_color">#99666666</color>
+
+  <!--button color -->
+  <color name="button_normal_color">#5db6f1</color>
+  <color name="button_press_color">#1c74af</color>
+
+  <!--text color -->
+  <color name="font_color_deep">#2a3f4b</color>
+  <color name="font_color_light">#8b9caa</color>
+  <color name="font_color_red">#f05d7c</color>
+  <color name="font_checked_color">#61cbae</color>
+
+  <color name="divider_color">#dce2e8</color>
+
+  <color name="client_reg_open_normal_color">#5db6f1</color>
+  <color name="client_reg_open_pressed_color">#cde7f9</color>
+  <color name="client_reg_open_checked_color">#1c74af</color>
+
+  <color name="client_reg_stop_normal_color">#ffb400</color>
+  <color name="client_reg_stop_pressed_color">#f7e9c9</color>
+  <color name="client_reg_stop_checked_color">#c86d02</color>
+
+  <color name="phone_consult_open_normal_color">#5db6f1</color>
+  <color name="phone_consult_open_pressed_color">#cde7f9</color>
+  <color name="phone_consult_open_checked_color">#1c74af</color>
+
+  <color name="phone_consult_stop_normal_color">#f05d7c</color>
+  <color name="phone_consult_stop_pressed_color">#f7cdd6</color>
+  <color name="phone_consult_stop_checked_color">#c61a3e</color>
+
+  <!-- img viewPager background -->
+  <color name="big_image_background">#cc000000</color>
+
+  <color name="patient_list_divider">#ffbbcfda</color>
+
+  <color name="colorPrimary">@color/font_color_light</color>
+  <color name="colorPrimaryDark">@color/font_color_deep</color>
+  <color name="colorAccent">@color/font_color_red</color>
+
+  <color name="title_bar_color">@android:color/white</color>
+  <color name="title_bar_text_color">@color/font_color_deep</color>
+
+  <color name="badge_color">#FF3823</color>
+  <color name="blue">#1482f0</color>
+  <color name="red">#FF3823</color>
+
+</resources>
