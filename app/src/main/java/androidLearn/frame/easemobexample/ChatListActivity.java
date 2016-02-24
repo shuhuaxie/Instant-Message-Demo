@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample;
+package androidLearn.frame.easemobExample;
 
 import android.app.Activity;
 import android.os.Bundle;

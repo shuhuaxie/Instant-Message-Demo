@@ -1,9 +1,9 @@
-package androidLearn.frame.easemobexample.widget.menu;
+package androidLearn.frame.easemobExample.widget.menu;
 
 
 import android.app.Dialog;
 import android.content.Context;
-import androidLearn.frame.easemobexample.R;
+import androidLearn.frame.easemobExample.R;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;

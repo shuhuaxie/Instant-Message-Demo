@@ -1,10 +1,10 @@
-package androidLearn.frame.easemobexample.im.conversation.ImUi;
+package androidLearn.frame.easemobExample.im.conversation.ImUi;
 
 import android.content.Context;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.im.conversation.ImConversation;
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
-import androidLearn.frame.easemobexample.widget.MessageAdapter;
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.im.conversation.ImConversation;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.widget.MessageAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;

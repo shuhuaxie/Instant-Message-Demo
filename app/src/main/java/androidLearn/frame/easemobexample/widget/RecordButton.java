@@ -1,11 +1,11 @@
-package androidLearn.frame.easemobexample.widget;
+package androidLearn.frame.easemobExample.widget;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.utils.PathUtils;
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.utils.PathUtils;
 import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Message;

@@ -1,7 +1,7 @@
-package androidLearn.frame.easemobexample.data;
+package androidLearn.frame.easemobExample.data;
 
-import androidLearn.frame.easemobexample.service.AccountManager;
-import androidLearn.frame.easemobexample.utils.DeviceUtils;
+import androidLearn.frame.easemobExample.service.AccountManager;
+import androidLearn.frame.easemobExample.utils.DeviceUtils;
 import android.text.TextUtils;
 
 import com.google.gson.FieldNamingPolicy;

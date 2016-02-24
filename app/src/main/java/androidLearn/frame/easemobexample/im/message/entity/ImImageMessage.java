@@ -1,14 +1,14 @@
-package androidLearn.frame.easemobexample.im.message.entity;
+package androidLearn.frame.easemobExample.im.message.entity;
 
-import androidLearn.frame.easemobexample.App;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.data.response.BaseResponse;
-import androidLearn.frame.easemobexample.im.easemob.EMImageMsg;
-import androidLearn.frame.easemobexample.im.message.ImMessageType;
-import androidLearn.frame.easemobexample.utils.BitmapUtils;
-import androidLearn.frame.easemobexample.utils.FileUtils;
-import androidLearn.frame.easemobexample.utils.PathUtils;
-import androidLearn.frame.easemobexample.utils.ThumbnailUtil;
+import androidLearn.frame.easemobExample.App;
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.data.response.BaseResponse;
+import androidLearn.frame.easemobExample.im.easemob.EMImageMsg;
+import androidLearn.frame.easemobExample.im.message.ImMessageType;
+import androidLearn.frame.easemobExample.utils.BitmapUtils;
+import androidLearn.frame.easemobExample.utils.FileUtils;
+import androidLearn.frame.easemobExample.utils.PathUtils;
+import androidLearn.frame.easemobExample.utils.ThumbnailUtil;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -90,7 +90,7 @@ public class ImImageMessage extends ImFileMessage {
 //      File file = new File(cachePath);
 //      String tempPath = cachePath;
 //      if (!file.exists()) {
-//        if (com.huimei.doctor.utils.FileUtils.copyFile(srcPath, cachePath)) {
+//        if (androidLearn.frame.easemobExample.utils.FileUtils.copyFile(srcPath, cachePath)) {
 //          tempPath = srcPath;
 //        }
 //      }

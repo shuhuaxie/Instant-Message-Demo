@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.im.message.entity;
+package androidLearn.frame.easemobExample.im.message.entity;
 
 import java.util.Collections;
 import java.util.HashMap;

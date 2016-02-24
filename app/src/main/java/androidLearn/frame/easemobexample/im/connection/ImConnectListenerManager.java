@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.im.connection;
+package androidLearn.frame.easemobExample.im.connection;
 
 public interface ImConnectListenerManager {
   void addConnectHandler(ImConnectListener handler);

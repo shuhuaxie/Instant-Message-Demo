@@ -1,11 +1,11 @@
-package androidLearn.frame.easemobexample.widget;
+package androidLearn.frame.easemobExample.widget;
 
 
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import androidLearn.frame.easemobexample.R;
+import androidLearn.frame.easemobExample.R;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;

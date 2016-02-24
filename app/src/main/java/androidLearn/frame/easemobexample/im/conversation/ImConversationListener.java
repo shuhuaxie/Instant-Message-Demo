@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.im.conversation;
+package androidLearn.frame.easemobExample.im.conversation;
 
 
 public interface ImConversationListener {

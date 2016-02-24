@@ -1,6 +1,6 @@
-package androidLearn.frame.easemobexample.data.entity;
+package androidLearn.frame.easemobExample.data.entity;
 
-import androidLearn.frame.easemobexample.App;
+import androidLearn.frame.easemobExample.App;
 
 public class Badge {
 

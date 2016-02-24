@@ -1,8 +1,8 @@
-package androidLearn.frame.easemobexample.utils;
+package androidLearn.frame.easemobExample.utils;
 
 import android.content.ContentResolver;
 import android.content.Context;
-import androidLearn.frame.easemobexample.App;
+import androidLearn.frame.easemobExample.App;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -175,7 +175,7 @@ public class BitmapLoader {
     switch (LIBTYPE){
       case ImageLoader:
         ImageLoader imageLoader = getImageLoader(context);
-        imageLoader.loadImageSync(getRealUrl(url));
+        imageLoader.loadImage(getRealUrl(url), null);
         break;
       case Glide:
         Glide.with(context.getApplicationContext()).load(getUri(url)).preload();

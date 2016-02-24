@@ -1,19 +1,19 @@
-package androidLearn.frame.easemobexample.im;
+package androidLearn.frame.easemobExample.im;
 
 import android.content.Context;
-import androidLearn.frame.easemobexample.data.entity.User;
-import androidLearn.frame.easemobexample.im.connection.ImConnectListener;
-import androidLearn.frame.easemobexample.im.connection.ImConnectListenerManager;
-import androidLearn.frame.easemobexample.im.connection.ImConnectManager;
-import androidLearn.frame.easemobexample.im.connection.ImConnectStatus;
-import androidLearn.frame.easemobexample.im.conversation.ImConversation;
-import androidLearn.frame.easemobexample.im.conversation.ImConversationListener;
-import androidLearn.frame.easemobexample.im.conversation.ImConversationListenerManager;
-import androidLearn.frame.easemobexample.im.conversation.ImConversationManager;
-import androidLearn.frame.easemobexample.im.message.ImMessageListener;
-import androidLearn.frame.easemobexample.im.message.ImMessageListenerManager;
-import androidLearn.frame.easemobexample.im.message.ImMessageManager;
-import androidLearn.frame.easemobexample.service.AccountManager;
+import androidLearn.frame.easemobExample.data.entity.User;
+import androidLearn.frame.easemobExample.im.connection.ImConnectListener;
+import androidLearn.frame.easemobExample.im.connection.ImConnectListenerManager;
+import androidLearn.frame.easemobExample.im.connection.ImConnectManager;
+import androidLearn.frame.easemobExample.im.connection.ImConnectStatus;
+import androidLearn.frame.easemobExample.im.conversation.ImConversation;
+import androidLearn.frame.easemobExample.im.conversation.ImConversationListener;
+import androidLearn.frame.easemobExample.im.conversation.ImConversationListenerManager;
+import androidLearn.frame.easemobExample.im.conversation.ImConversationManager;
+import androidLearn.frame.easemobExample.im.message.ImMessageListener;
+import androidLearn.frame.easemobExample.im.message.ImMessageListenerManager;
+import androidLearn.frame.easemobExample.im.message.ImMessageManager;
+import androidLearn.frame.easemobExample.service.AccountManager;
 
 
 import java.util.List;

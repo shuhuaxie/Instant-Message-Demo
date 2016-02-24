@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.im.conversation;
+package androidLearn.frame.easemobExample.im.conversation;
 
 /**
  * Created by 明帅 on 2015/8/31.

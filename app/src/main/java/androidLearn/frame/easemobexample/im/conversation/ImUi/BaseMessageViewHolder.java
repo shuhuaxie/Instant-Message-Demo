@@ -1,6 +1,6 @@
-package androidLearn.frame.easemobexample.im.conversation.ImUi;
+package androidLearn.frame.easemobExample.im.conversation.ImUi;
 
-import androidLearn.frame.easemobexample.widget.PortraitView;
+import androidLearn.frame.easemobExample.widget.PortraitView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;

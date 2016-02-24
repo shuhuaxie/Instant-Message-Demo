@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.data;
+package androidLearn.frame.easemobExample.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;

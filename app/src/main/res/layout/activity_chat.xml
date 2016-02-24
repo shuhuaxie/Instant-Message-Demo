@@ -92,7 +92,7 @@
           android:padding="10dp"
           android:scaleType="center"/>
 
-      <com.huimei.doctor.widget.RecordButton
+      <androidLearn.frame.easemobExample.widget.RecordButton
           android:id="@+id/btn_press_to_speak"
           android:layout_width="0dp"
           android:layout_height="36dp"
@@ -103,7 +103,7 @@
           android:text="按住说话"
           android:layout_marginTop="7dp"
           android:layout_marginBottom="7dp">
-      </com.huimei.doctor.widget.RecordButton>
+      </androidLearn.frame.easemobExample.widget.RecordButton>
 
       <RelativeLayout
           android:id="@+id/edittext_layout"

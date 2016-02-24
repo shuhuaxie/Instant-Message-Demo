@@ -1,7 +1,7 @@
-package androidLearn.frame.easemobexample.im.easemob;
+package androidLearn.frame.easemobExample.im.easemob;
 
-import androidLearn.frame.easemobexample.im.connection.ImConnectListenerManager;
-import androidLearn.frame.easemobexample.im.connection.ImConnectStatus;
+import androidLearn.frame.easemobExample.im.connection.ImConnectListenerManager;
+import androidLearn.frame.easemobExample.im.connection.ImConnectStatus;
 
 import com.easemob.EMConnectionListener;
 import com.easemob.EMError;

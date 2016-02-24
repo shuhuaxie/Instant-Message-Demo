@@ -1,6 +1,6 @@
-package androidLearn.frame.easemobexample.im.connection;
+package androidLearn.frame.easemobExample.im.connection;
 
-import androidLearn.frame.easemobexample.App;
+import androidLearn.frame.easemobExample.App;
 import android.os.Handler;
 import java.util.ArrayList;
 import java.util.List;

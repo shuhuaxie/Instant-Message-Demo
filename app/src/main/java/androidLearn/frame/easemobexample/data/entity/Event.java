@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.data.entity;
+package androidLearn.frame.easemobExample.data.entity;
 
 import de.greenrobot.event.EventBus;
 

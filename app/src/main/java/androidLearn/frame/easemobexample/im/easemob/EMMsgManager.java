@@ -1,9 +1,9 @@
-package androidLearn.frame.easemobexample.im.easemob;
+package androidLearn.frame.easemobExample.im.easemob;
 
-import androidLearn.frame.easemobexample.im.conversation.ImConversation;
-import androidLearn.frame.easemobexample.im.conversation.ImConversationListenerManager;
-import androidLearn.frame.easemobexample.im.message.ImMessageListenerManager;
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.im.conversation.ImConversation;
+import androidLearn.frame.easemobExample.im.conversation.ImConversationListenerManager;
+import androidLearn.frame.easemobExample.im.message.ImMessageListenerManager;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
 
 import com.easemob.EMCallBack;
 import com.easemob.EMEventListener;

@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.widget;
+package androidLearn.frame.easemobExample.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -20,7 +20,7 @@
       android:layout_marginTop="@dimen/margin_chat_activity"
       android:paddingRight="@dimen/chat_message_margin_to_edge">
 
-    <com.huimei.doctor.widget.PortraitView
+    <androidLearn.frame.easemobExample.widget.PortraitView
         style="@style/portrait_style"
         android:id="@+id/iv_userhead"
         android:layout_width="@dimen/size_avatar"

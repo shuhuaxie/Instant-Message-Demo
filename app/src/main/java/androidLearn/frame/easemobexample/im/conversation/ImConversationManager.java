@@ -1,6 +1,6 @@
-package androidLearn.frame.easemobexample.im.conversation;
+package androidLearn.frame.easemobExample.im.conversation;
 
-import androidLearn.frame.easemobexample.App;
+import androidLearn.frame.easemobExample.App;
 import android.os.Handler;
 
 

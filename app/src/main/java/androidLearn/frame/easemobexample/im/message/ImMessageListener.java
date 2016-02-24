@@ -1,8 +1,8 @@
-package androidLearn.frame.easemobexample.im.message;
+package androidLearn.frame.easemobExample.im.message;
 
 
-import androidLearn.frame.easemobexample.im.conversation.ImConversation;
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.im.conversation.ImConversation;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
 
 public interface ImMessageListener {
   int getMessageListenerPriority();

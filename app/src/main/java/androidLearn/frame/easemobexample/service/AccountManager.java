@@ -1,15 +1,15 @@
-package androidLearn.frame.easemobexample.service;
+package androidLearn.frame.easemobExample.service;
 
 import android.app.Activity;
 import android.content.Intent;
-import androidLearn.frame.easemobexample.App;
-import androidLearn.frame.easemobexample.MainActivity;
-import androidLearn.frame.easemobexample.data.CacheKeys;
-import androidLearn.frame.easemobexample.data.DataManager;
-import androidLearn.frame.easemobexample.data.LocalCacheUtils;
-import androidLearn.frame.easemobexample.data.entity.User;
-import androidLearn.frame.easemobexample.utils.BitmapLoader;
-import androidLearn.frame.easemobexample.utils.PathUtils;
+import androidLearn.frame.easemobExample.App;
+import androidLearn.frame.easemobExample.MainActivity;
+import androidLearn.frame.easemobExample.data.CacheKeys;
+import androidLearn.frame.easemobExample.data.DataManager;
+import androidLearn.frame.easemobExample.data.LocalCacheUtils;
+import androidLearn.frame.easemobExample.data.entity.User;
+import androidLearn.frame.easemobExample.utils.BitmapLoader;
+import androidLearn.frame.easemobExample.utils.PathUtils;
 
 import android.text.TextUtils;
 
@@ -38,12 +38,12 @@ public class AccountManager {
     DataManager.getInstance().put(CacheKeys.USER, user, 0);
     LocalCacheUtils.getInstance(App.getInstance()).setObject(CacheKeys.USER, user);
   }
-//
+
   public void clearUser() {
     DataManager.getInstance().put(CacheKeys.USER, null, 0);
     LocalCacheUtils.getInstance(App.getInstance()).setObject(CacheKeys.USER, null);
   }
-//
+
   public User getUser() {
     User user = DataManager.getInstance().get(CacheKeys.USER);
     if (user == null) {
@@ -71,9 +71,9 @@ public class AccountManager {
 
   public void login(Activity activity, User user) {
     AccountManager.getInstance().saveUser(user);
-    Intent intent = new Intent(App.getInstance(), MainActivity.class);
+//    Intent intent = new Intent(App.getInstance(), MainActivity.class);
 //    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    activity.startActivity(intent);
+//    activity.startActivity(intent);
 
   }
 

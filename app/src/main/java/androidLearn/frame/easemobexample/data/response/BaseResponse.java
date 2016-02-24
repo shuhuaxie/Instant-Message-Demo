@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.data.response;
+package androidLearn.frame.easemobExample.data.response;
 
 public class BaseResponse {
 

@@ -1,9 +1,9 @@
-package androidLearn.frame.easemobexample.utils;
+package androidLearn.frame.easemobExample.utils;
 
 import android.content.res.Resources;
-import androidLearn.frame.easemobexample.App;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.widget.PortraitView;
+import androidLearn.frame.easemobExample.App;
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.widget.PortraitView;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;

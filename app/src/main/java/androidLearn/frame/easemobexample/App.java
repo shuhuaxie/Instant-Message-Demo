@@ -1,10 +1,12 @@
-package androidLearn.frame.easemobexample;
+package androidLearn.frame.easemobExample;
 
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.pm.PackageManager;
-import androidLearn.frame.easemobexample.im.ImClient;
-import androidLearn.frame.easemobexample.im.easemob.EMClient;
+import android.util.Log;
+
+import androidLearn.frame.easemobExample.im.ImClient;
+import androidLearn.frame.easemobExample.im.easemob.EMClient;
 
 import java.util.Iterator;
 import java.util.List;
@@ -20,13 +22,8 @@ public class App extends Application {
   public void onCreate() {
     super.onCreate();
     mInstance = this;
-
-
-
     initImClient();
-
   }
-
 
   public static App getInstance() {
     return mInstance;
@@ -40,11 +37,7 @@ public class App extends Application {
 
     int pid = android.os.Process.myPid();
     String processAppName = getAppName(pid);
-
     if (processAppName == null || !processAppName.equalsIgnoreCase(App.getInstance().getPackageName())) {
-      //"com.easemob.chatuidemo"为demo的包名，换到自己项目中要改成自己包名
-
-      // 则此application::onCreate 是被service 调用的，直接返回
       return;
     }
 

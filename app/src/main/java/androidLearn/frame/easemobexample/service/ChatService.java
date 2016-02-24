@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.service;
+package androidLearn.frame.easemobExample.service;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;

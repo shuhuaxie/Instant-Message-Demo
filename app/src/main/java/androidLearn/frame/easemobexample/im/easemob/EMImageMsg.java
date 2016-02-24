@@ -1,8 +1,8 @@
-package androidLearn.frame.easemobexample.im.easemob;
+package androidLearn.frame.easemobExample.im.easemob;
 
-import androidLearn.frame.easemobexample.im.message.entity.ImImageMessage;
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
-import androidLearn.frame.easemobexample.utils.PathUtils;
+import androidLearn.frame.easemobExample.im.message.entity.ImImageMessage;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.utils.PathUtils;
 import android.text.TextUtils;
 
 import com.easemob.chat.EMMessage;

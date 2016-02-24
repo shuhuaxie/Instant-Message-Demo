@@ -86,7 +86,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/font_normal"/>
 
-            <com.huimei.doctor.widget.PlayButton
+            <androidLearn.frame.easemobExample.widget.PlayButton
                 android:id="@+id/iv_voice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                 />
         </LinearLayout>
 
-        <com.huimei.doctor.widget.PortraitView
+        <androidLearn.frame.easemobExample.widget.PortraitView
             style="@style/portrait_style"
             android:id="@+id/iv_userhead"
             android:layout_width="@dimen/size_avatar"

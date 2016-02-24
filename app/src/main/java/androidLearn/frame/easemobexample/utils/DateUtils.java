@@ -1,6 +1,6 @@
-package androidLearn.frame.easemobexample.utils;
+package androidLearn.frame.easemobExample.utils;
 
-import androidLearn.frame.easemobexample.App;
+import androidLearn.frame.easemobExample.App;
 
 import com.easemob.util.TimeInfo;
 

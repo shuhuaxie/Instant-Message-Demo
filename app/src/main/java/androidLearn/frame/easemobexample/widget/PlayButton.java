@@ -1,9 +1,9 @@
-package androidLearn.frame.easemobexample.widget;
+package androidLearn.frame.easemobExample.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.utils.AudioHelper;
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.utils.AudioHelper;
 import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
 import android.view.View;

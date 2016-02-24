@@ -50,8 +50,8 @@
   <string name="im_new_message_buddy">来自%1$s的新消息</string>
   <string name="conversation_end_text">本次咨询已结束，感谢您的服务</string>
   <string name="conversation_start_text">本次咨询48小时候后自动结束</string>
-  <string name="im_login_err_invalid_user">账号有误，请联系客服</string>
-  <string name="im_login_fail">登录失败，请重试</string>
+  <string name="im_login_err_invalid_user">invalid user</string>
+  <string name="im_login_fail">login failed，please try again</string>
   <string name="im_conversation_end_tip">结束本次图文咨询？</string>
   <string name="im_conversation_end_push">本次咨询已经结束，请对我的服务进行评价</string>
   <string name="detail">详情</string>

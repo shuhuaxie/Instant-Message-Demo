@@ -1,17 +1,17 @@
-package androidLearn.frame.easemobexample;
+package androidLearn.frame.easemobExample;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import androidLearn.frame.easemobexample.im.ImClient;
-import androidLearn.frame.easemobexample.im.conversation.ImConversation;
-import androidLearn.frame.easemobexample.im.message.ImMessageListener;
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
-import androidLearn.frame.easemobexample.utils.UiUtils;
-import androidLearn.frame.easemobexample.widget.MessageAdapter;
-import androidLearn.frame.easemobexample.widget.PlayButton;
-import androidLearn.frame.easemobexample.widget.ProgressDialogFragment;
-import androidLearn.frame.easemobexample.widget.RecordButton;
+import androidLearn.frame.easemobExample.im.ImClient;
+import androidLearn.frame.easemobExample.im.conversation.ImConversation;
+import androidLearn.frame.easemobExample.im.message.ImMessageListener;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.utils.UiUtils;
+import androidLearn.frame.easemobExample.widget.MessageAdapter;
+import androidLearn.frame.easemobExample.widget.PlayButton;
+import androidLearn.frame.easemobExample.widget.ProgressDialogFragment;
+import androidLearn.frame.easemobExample.widget.RecordButton;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;

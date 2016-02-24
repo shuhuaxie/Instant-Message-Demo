@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.im.connection;
+package androidLearn.frame.easemobExample.im.connection;
 
 /**
  * Created by 明帅 on 2015/9/9.

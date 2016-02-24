@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.data.entity;
+package androidLearn.frame.easemobExample.data.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;

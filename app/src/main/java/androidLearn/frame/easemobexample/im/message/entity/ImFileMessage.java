@@ -1,10 +1,10 @@
-package androidLearn.frame.easemobexample.im.message.entity;
+package androidLearn.frame.easemobExample.im.message.entity;
 
-import androidLearn.frame.easemobexample.data.HmDataService;
-import androidLearn.frame.easemobexample.data.entity.MessageData;
-import androidLearn.frame.easemobexample.im.conversation.ImConversation;
-import androidLearn.frame.easemobexample.im.message.ImMessageStatus;
-import androidLearn.frame.easemobexample.utils.FileUtils;
+import androidLearn.frame.easemobExample.data.HmDataService;
+import androidLearn.frame.easemobExample.data.entity.MessageData;
+import androidLearn.frame.easemobExample.im.conversation.ImConversation;
+import androidLearn.frame.easemobExample.im.message.ImMessageStatus;
+import androidLearn.frame.easemobExample.utils.FileUtils;
 import android.text.TextUtils;
 
 import com.squareup.okhttp.Call;

@@ -1,18 +1,22 @@
-package androidLearn.frame.easemobexample.utils;
+package androidLearn.frame.easemobExample.utils;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import androidLearn.frame.easemobexample.LoginActivity;
-import androidLearn.frame.easemobexample.MainActivity;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.LoginActivity;
+import androidLearn.frame.easemobExample.MainActivity;
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.widget.ProgressDialogFragment;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Paint;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.view.View;
@@ -32,6 +36,29 @@ public class UiUtils {
   static {
     sDividerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     sDividerPaint.setColor(0xffdadada);
+  }
+
+  public static ProgressDialogFragment showProgressDialog(Context context, String text) {
+    return showProgressDialog(context, text, false);
+  }
+
+  public static ProgressDialogFragment dismiss(ProgressDialogFragment dialogFragment) {
+    if (dialogFragment != null) {
+      dialogFragment.dismissAllowingStateLoss();
+    }
+    return null;
+  }
+
+  public static ProgressDialogFragment showProgressDialog(Context context, String text, boolean cancelable) {
+    ProgressDialogFragment dialogFragment = new ProgressDialogFragment();
+    Bundle args = new Bundle();
+    args.putString(ProgressDialogFragment.ARGUMENT_TEXT, text);
+    dialogFragment.setArguments(args);
+    dialogFragment.setCancelable(cancelable);
+    FragmentTransaction transaction = ((Activity) context).getFragmentManager().beginTransaction();
+    transaction.add(dialogFragment, "hm_progress_dialog");
+    transaction.commitAllowingStateLoss();
+    return dialogFragment;
   }
 
   public static Paint getDividerPaint() {

@@ -3,38 +3,66 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_marginTop="10dp"
+    android:orientation="vertical"
     >
 
   <TextView
-      android:id="@+id/chat_list_tv"
+      android:id="@+id/login_tv"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:textSize="20dp"
       android:layout_margin="10dp"
       android:background="#3f0000ff"
       android:padding="10dp"
-      android:text="Chat list"/>
+      android:text="login easemob"
+      android:textSize="20dp"/>
 
-  <TextView
-      android:id="@+id/chat_easemob_tv"
+  <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:textSize="20dp"
-      android:layout_margin="10dp"
-      android:background="#3f0000ff"
-      android:padding="10dp"
-      android:text="Start chat to easemob"/>
+      android:orientation="vertical"
+      android:visibility="gone"
+      android:id="@+id/normal_ll">
 
-  <TextView
-      android:id="@+id/chat_obama_tv"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:textSize="20dp"
-      android:layout_margin="10dp"
-      android:background="#3f0000ff"
-      android:padding="10dp"
-      android:text="Start chat to Obama"/>
+    <TextView
+        android:id="@+id/chat_list_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#3f0000ff"
+        android:padding="10dp"
+        android:text="Chat list"
+        android:textSize="20dp"/>
 
+    <TextView
+        android:id="@+id/chat_easemob_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#3f0000ff"
+        android:padding="10dp"
+        android:text="Start chat to easemob"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/chat_obama_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#3f0000ff"
+        android:padding="10dp"
+        android:text="Start chat to Obama"
+        android:textSize="20dp"/>
+
+
+    <TextView
+        android:id="@+id/logout_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#3f0000ff"
+        android:padding="10dp"
+        android:text="loginout easemob"
+        android:textSize="20dp"/>
   </LinearLayout>
+</LinearLayout>

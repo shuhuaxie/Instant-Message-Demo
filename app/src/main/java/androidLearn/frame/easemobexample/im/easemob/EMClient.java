@@ -1,18 +1,21 @@
-package androidLearn.frame.easemobexample.im.easemob;
+package androidLearn.frame.easemobExample.im.easemob;
 
 import android.content.Context;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.im.ImClient;
-import androidLearn.frame.easemobexample.im.connection.ImConnectListener;
-import androidLearn.frame.easemobexample.im.connection.ImConnectStatus;
-import androidLearn.frame.easemobexample.im.conversation.ImConversation;
-import androidLearn.frame.easemobexample.im.message.ImMessageListener;
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
-import androidLearn.frame.easemobexample.service.AccountManager;
-import androidLearn.frame.easemobexample.utils.UiUtils;
+
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.im.ImClient;
+import androidLearn.frame.easemobExample.im.connection.ImConnectListener;
+import androidLearn.frame.easemobExample.im.connection.ImConnectStatus;
+import androidLearn.frame.easemobExample.im.conversation.ImConversation;
+import androidLearn.frame.easemobExample.im.message.ImMessageListener;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.service.AccountManager;
+import androidLearn.frame.easemobExample.utils.UiUtils;
+
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.easemob.EMCallBack;
 import com.easemob.EMError;
@@ -31,11 +34,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class EMClient extends ImClient implements ImConnectListener,ImMessageListener {
+public class EMClient extends ImClient implements ImConnectListener, ImMessageListener {
 
   private static EMClient mClient;
   private Context mContext;
-  private final Map<String, EMConv>  mConversationList = Collections.synchronizedMap(new HashMap<String, EMConv>());
+  private final Map<String, EMConv> mConversationList = Collections.synchronizedMap(new HashMap<String, EMConv>());
   private boolean mConnected = false;
   private boolean mIsReceiverRegisted = false;
   private final AtomicBoolean isConvLoadedFromDb = new AtomicBoolean(false);
@@ -50,7 +53,6 @@ public class EMClient extends ImClient implements ImConnectListener,ImMessageLis
     if (mClient == null) {
       mClient = new EMClient();
     }
-
     return mClient;
   }
 
@@ -101,27 +103,21 @@ public class EMClient extends ImClient implements ImConnectListener,ImMessageLis
     String pwd = getUserPwd();
     if (TextUtils.isEmpty(id) || TextUtils.isEmpty(pwd)) {  //这种情况就是本地保存的IM账户信息是空，应该是被踢下线的情况
       if (callBack != null) {
-        callBack.onCallBack(false, "账号信息有误");
+        callBack.onCallBack(false, "account message error");
       }
-//      if(AccountManager.getInstance().isLogin()) {
-//        AccountManager.getInstance().logout(null, false);
-//        UiUtils.showKickedNotification(mContext);
-//      }
       return;
     }
-
     open(id, pwd, callBack);
   }
 
   @Override
   public synchronized void open(String id, String pwd, final ImClientCallBack callBack) {
-    if(isConnected()){
-      if(callBack != null){
+    if (isConnected()) {
+      if (callBack != null) {
         callBack.onCallBack(true, null);
       }
       return;
     }
-
     EMChatManager.getInstance().login(id, pwd, new EMCallBack() {//回调
       @Override
       public void onSuccess() {
@@ -136,13 +132,12 @@ public class EMClient extends ImClient implements ImConnectListener,ImMessageLis
         EMChatManager.getInstance().loadAllConversations();
         isConvLoadedFromDb.set(true);
 
-
         //登录成功后加载一次会话列表
         queryConversation(null, new ImClientConversationListCallBack() {
 
           @Override
           public void onCallBack(boolean success, List<ImConversation> list) {
-
+            Log.e("xie", "queryResult:" + success);
             if (callBack != null) {
               new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
@@ -175,6 +170,7 @@ public class EMClient extends ImClient implements ImConnectListener,ImMessageLis
           @Override
           public void run() {
             if (callBack != null) {
+
               String err = mContext.getString(R.string.im_login_fail);
               if (code == EMError.INVALID_PASSWORD_USERNAME) {
                 err = mContext.getString(R.string.im_login_err_invalid_user);
@@ -183,7 +179,6 @@ public class EMClient extends ImClient implements ImConnectListener,ImMessageLis
             }
           }
         });
-
       }
     });
   }
@@ -289,7 +284,7 @@ public class EMClient extends ImClient implements ImConnectListener,ImMessageLis
       }
     }
 
-    if(callback != null){
+    if (callback != null) {
       callback.onCallBack(true, list);
     }
   }
@@ -313,7 +308,7 @@ public class EMClient extends ImClient implements ImConnectListener,ImMessageLis
     }
   }
 
-  private void registerConnectHandler(){
+  private void registerConnectHandler() {
     //注册EMClient自己的网络监听处理
     addConnectListener(this);
 
@@ -321,7 +316,7 @@ public class EMClient extends ImClient implements ImConnectListener,ImMessageLis
     EMChatManager.getInstance().addConnectionListener(mConnectManager);
   }
 
-  private void unRegisterConnectHandler(){
+  private void unRegisterConnectHandler() {
     clearConnectListener();
     EMChatManager.getInstance().removeConnectionListener(mConnectManager);
   }

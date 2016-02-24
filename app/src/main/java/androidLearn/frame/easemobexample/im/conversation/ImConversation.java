@@ -1,7 +1,7 @@
-package androidLearn.frame.easemobexample.im.conversation;
+package androidLearn.frame.easemobExample.im.conversation;
 
 
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package androidLearn.frame.easemobexample.widget;
+package androidLearn.frame.easemobExample.widget;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
-import androidLearn.frame.easemobexample.R;
+import androidLearn.frame.easemobExample.R;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

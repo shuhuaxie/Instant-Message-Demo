@@ -21,7 +21,7 @@
         android:gravity="center_vertical"
         android:weightSum="100">
 
-        <com.huimei.doctor.widget.PortraitView
+        <androidLearn.frame.easemobExample.widget.PortraitView
             style="@style/portrait_style"
             android:id="@+id/iv_userhead"
             android:layout_width="@dimen/size_avatar"
@@ -42,7 +42,7 @@
             android:layout_marginLeft="@dimen/im_message_portrait_margin"
             android:layout_weight="1">
 
-            <com.huimei.doctor.widget.PlayButton
+            <androidLearn.frame.easemobExample.widget.PlayButton
                 android:id="@+id/iv_voice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

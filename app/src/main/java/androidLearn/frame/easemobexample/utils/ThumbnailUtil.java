@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.utils;
+package androidLearn.frame.easemobExample.utils;
 
 import android.content.ContentResolver;
 import android.graphics.Bitmap;

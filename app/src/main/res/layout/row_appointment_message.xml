@@ -49,7 +49,7 @@
         android:textColor="@color/font_color_deep"
         android:lineSpacingExtra = "3dp"/>
 
-      <com.huimei.doctor.widget.EllipsizingTextView
+      <androidLearn.frame.easemobExample.widget.EllipsizingTextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:id="@+id/detail"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="androidLearn.frame.easemobexample"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    package="androidLearn.frame.easemobExample"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -8,8 +9,11 @@
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
   <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
   <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
   <application
+      android:name=".App"
       android:allowBackup="true"
       android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
@@ -19,12 +23,11 @@
         android:name="EASEMOB_APPKEY"
         android:value="${EASEMOB_APPKEY}"/>
     <activity
-        android:name=".MainActivity"
-        android:label="@string/app_name"
+        android:name="androidLearn.frame.easemobExample.MainActivity"
+        android:screenOrientation="portrait"
         android:theme="@style/AppTheme.NoActionBar">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
-
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
@@ -32,11 +35,11 @@
     <!-- 声明环信sdk所需的service SDK核心功能 -->
     <service android:name="com.easemob.chat.EMChatService"/>
     <service
-        android:name=".service.ChatService"
+        android:name="androidLearn.frame.easemobExample.service.ChatService"
         android:exported="false"/>
 
     <receiver
-        android:name=".service.ChatReceiver"
+        android:name="androidLearn.frame.easemobExample.service.ChatReceiver"
         android:exported="true">
       <intent-filter>
 
@@ -45,7 +48,12 @@
         <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
       </intent-filter>
     </receiver>
+    <activity
+        android:name="androidLearn.frame.easemobExample.ChatActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme.NoActionBar">
 
+    </activity>
   </application>
 
 </manifest>

@@ -1,14 +1,14 @@
-package androidLearn.frame.easemobexample.im.message.entity;
+package androidLearn.frame.easemobExample.im.message.entity;
 
-import androidLearn.frame.easemobexample.App;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.data.entity.User;
-import androidLearn.frame.easemobexample.im.ImClient;
-import androidLearn.frame.easemobexample.im.conversation.ImConversation;
-import androidLearn.frame.easemobexample.im.message.ImMessageStatus;
-import androidLearn.frame.easemobexample.im.message.ImMessageType;
-import androidLearn.frame.easemobexample.service.AccountManager;
-import androidLearn.frame.easemobexample.utils.CommonUtils;
+import androidLearn.frame.easemobExample.App;
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.data.entity.User;
+import androidLearn.frame.easemobExample.im.ImClient;
+import androidLearn.frame.easemobExample.im.conversation.ImConversation;
+import androidLearn.frame.easemobExample.im.message.ImMessageStatus;
+import androidLearn.frame.easemobExample.im.message.ImMessageType;
+import androidLearn.frame.easemobExample.service.AccountManager;
+import androidLearn.frame.easemobExample.utils.CommonUtils;
 import android.text.TextUtils;
 
 

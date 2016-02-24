@@ -1,12 +1,12 @@
-package androidLearn.frame.easemobexample.im.message;
+package androidLearn.frame.easemobExample.im.message;
 
-import androidLearn.frame.easemobexample.App;
-import androidLearn.frame.easemobexample.data.entity.Badge;
-import androidLearn.frame.easemobexample.data.entity.Event;
-import androidLearn.frame.easemobexample.data.entity.Order;
-import androidLearn.frame.easemobexample.im.conversation.ImConversation;
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
-import androidLearn.frame.easemobexample.utils.UiUtils;
+import androidLearn.frame.easemobExample.App;
+import androidLearn.frame.easemobExample.data.entity.Badge;
+import androidLearn.frame.easemobExample.data.entity.Event;
+import androidLearn.frame.easemobExample.data.entity.Order;
+import androidLearn.frame.easemobExample.im.conversation.ImConversation;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.utils.UiUtils;
 import android.os.Handler;
 import android.os.Looper;
 

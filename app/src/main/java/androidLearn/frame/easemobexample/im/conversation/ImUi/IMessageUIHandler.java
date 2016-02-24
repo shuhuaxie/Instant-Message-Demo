@@ -1,6 +1,6 @@
-package androidLearn.frame.easemobexample.im.conversation.ImUi;
+package androidLearn.frame.easemobExample.im.conversation.ImUi;
 
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
 import android.view.View;
 
 

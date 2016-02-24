@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.im.message;
+package androidLearn.frame.easemobExample.im.message;
 
 public enum ImMessageType {
   notice_text,

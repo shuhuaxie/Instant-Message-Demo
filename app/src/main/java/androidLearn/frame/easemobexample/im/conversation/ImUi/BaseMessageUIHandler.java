@@ -1,20 +1,20 @@
-package androidLearn.frame.easemobexample.im.conversation.ImUi;
+package androidLearn.frame.easemobExample.im.conversation.ImUi;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.im.ImClient;
-import androidLearn.frame.easemobexample.im.conversation.ImConversation;
-import androidLearn.frame.easemobexample.im.message.ImMessageStatus;
-import androidLearn.frame.easemobexample.im.message.entity.ImMessage;
-import androidLearn.frame.easemobexample.service.AccountManager;
-import androidLearn.frame.easemobexample.utils.BitmapUtils;
-import androidLearn.frame.easemobexample.utils.DateUtils;
-import androidLearn.frame.easemobexample.utils.UiUtils;
-import androidLearn.frame.easemobexample.widget.MessageAdapter;
-import androidLearn.frame.easemobexample.widget.PortraitView;
-import androidLearn.frame.easemobexample.widget.menu.MenuDialog;
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.im.ImClient;
+import androidLearn.frame.easemobExample.im.conversation.ImConversation;
+import androidLearn.frame.easemobExample.im.message.ImMessageStatus;
+import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
+import androidLearn.frame.easemobExample.service.AccountManager;
+import androidLearn.frame.easemobExample.utils.BitmapUtils;
+import androidLearn.frame.easemobExample.utils.DateUtils;
+import androidLearn.frame.easemobExample.utils.UiUtils;
+import androidLearn.frame.easemobExample.widget.MessageAdapter;
+import androidLearn.frame.easemobExample.widget.PortraitView;
+import androidLearn.frame.easemobExample.widget.menu.MenuDialog;
 import android.view.View;
 
 import com.squareup.okhttp.OkHttpClient;

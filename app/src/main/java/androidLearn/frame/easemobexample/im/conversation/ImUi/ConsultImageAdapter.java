@@ -1,9 +1,9 @@
-package androidLearn.frame.easemobexample.im.conversation.ImUi;
+package androidLearn.frame.easemobExample.im.conversation.ImUi;
 
 import android.content.Context;
-import androidLearn.frame.easemobexample.App;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.utils.BitmapLoader;
+import androidLearn.frame.easemobExample.App;
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.utils.BitmapLoader;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_chat_activity" >
 
-        <com.huimei.doctor.widget.PortraitView
+        <androidLearn.frame.easemobExample.widget.PortraitView
             style="@style/portrait_style"
             android:id="@+id/iv_userhead"
             android:layout_width="@dimen/size_avatar"

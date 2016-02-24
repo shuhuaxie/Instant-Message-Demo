@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobexample.im.message;
+package androidLearn.frame.easemobExample.im.message;
 
 /**
  * Created by 明帅 on 2015/9/6.

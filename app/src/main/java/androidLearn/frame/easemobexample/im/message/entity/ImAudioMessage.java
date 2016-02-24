@@ -1,11 +1,11 @@
-package androidLearn.frame.easemobexample.im.message.entity;
+package androidLearn.frame.easemobExample.im.message.entity;
 
-import androidLearn.frame.easemobexample.App;
-import androidLearn.frame.easemobexample.R;
-import androidLearn.frame.easemobexample.data.response.BaseResponse;
-import androidLearn.frame.easemobexample.im.easemob.EMAudioMsg;
-import androidLearn.frame.easemobexample.im.message.ImMessageType;
-import androidLearn.frame.easemobexample.utils.PathUtils;
+import androidLearn.frame.easemobExample.App;
+import androidLearn.frame.easemobExample.R;
+import androidLearn.frame.easemobExample.data.response.BaseResponse;
+import androidLearn.frame.easemobExample.im.easemob.EMAudioMsg;
+import androidLearn.frame.easemobExample.im.message.ImMessageType;
+import androidLearn.frame.easemobExample.utils.PathUtils;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;

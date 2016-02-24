@@ -1,10 +1,10 @@
-package androidLearn.frame.easemobexample;
+package androidLearn.frame.easemobExample;
 
 
 import android.app.Activity;
 import android.content.Intent;
-import androidLearn.frame.easemobexample.service.AccountManager;
-import androidLearn.frame.easemobexample.utils.UiUtils;
+import androidLearn.frame.easemobExample.service.AccountManager;
+import androidLearn.frame.easemobExample.utils.UiUtils;
 
 import android.os.Bundle;
 import android.text.Editable;

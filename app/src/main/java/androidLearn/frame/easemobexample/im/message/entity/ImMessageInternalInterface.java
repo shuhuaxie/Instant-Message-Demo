@@ -1,7 +1,7 @@
-package androidLearn.frame.easemobexample.im.message.entity;
+package androidLearn.frame.easemobExample.im.message.entity;
 
-import androidLearn.frame.easemobexample.im.message.ImMessageStatus;
-import androidLearn.frame.easemobexample.im.message.ImMessageType;
+import androidLearn.frame.easemobExample.im.message.ImMessageStatus;
+import androidLearn.frame.easemobExample.im.message.ImMessageType;
 
 public interface ImMessageInternalInterface {
   /**
