@@ -1,8 +1,11 @@
-package androidLearn.frame.easemobExample;
+package androidLearn.frame.easemobExample.main;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+
+import androidLearn.frame.easemobExample.App;
+import androidLearn.frame.easemobExample.R;
 import androidLearn.frame.easemobExample.im.ImClient;
 import androidLearn.frame.easemobExample.im.conversation.ImConversation;
 import androidLearn.frame.easemobExample.im.message.ImMessageListener;

@@ -1,9 +1,8 @@
 package androidLearn.frame.easemobExample.service;
 
 import android.app.Activity;
-import android.content.Intent;
+
 import androidLearn.frame.easemobExample.App;
-import androidLearn.frame.easemobExample.MainActivity;
 import androidLearn.frame.easemobExample.data.CacheKeys;
 import androidLearn.frame.easemobExample.data.DataManager;
 import androidLearn.frame.easemobExample.data.LocalCacheUtils;

@@ -1,4 +1,4 @@
-package androidLearn.frame.easemobExample;
+package androidLearn.frame.easemobExample.main;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidLearn.frame.easemobExample.App;
+import androidLearn.frame.easemobExample.R;
 import androidLearn.frame.easemobExample.data.entity.User;
 import androidLearn.frame.easemobExample.im.ImClient;
 import androidLearn.frame.easemobExample.service.AccountManager;

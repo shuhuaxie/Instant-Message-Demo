@@ -23,7 +23,7 @@
         android:name="EASEMOB_APPKEY"
         android:value="${EASEMOB_APPKEY}"/>
     <activity
-        android:name="androidLearn.frame.easemobExample.MainActivity"
+        android:name=".main.MainActivity"
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme.NoActionBar">
       <intent-filter>
@@ -49,7 +49,14 @@
       </intent-filter>
     </receiver>
     <activity
-        android:name="androidLearn.frame.easemobExample.ChatActivity"
+        android:name=".main.ChatActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme.NoActionBar">
+
+    </activity>
+
+    <activity
+        android:name=".main.ChatListActivity"
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme.NoActionBar">
 

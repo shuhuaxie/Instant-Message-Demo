@@ -1,8 +1,10 @@
-package androidLearn.frame.easemobExample;
+package androidLearn.frame.easemobExample.main;
 
 
 import android.app.Activity;
 import android.content.Intent;
+
+import androidLearn.frame.easemobExample.R;
 import androidLearn.frame.easemobExample.service.AccountManager;
 import androidLearn.frame.easemobExample.utils.UiUtils;
 
