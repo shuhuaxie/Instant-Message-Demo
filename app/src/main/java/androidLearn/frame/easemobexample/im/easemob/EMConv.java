@@ -12,9 +12,11 @@ import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
 import androidLearn.frame.easemobExample.im.message.entity.ImTextMessage;
 import androidLearn.frame.easemobExample.utils.BitmapUtils;
 import androidLearn.frame.easemobExample.utils.PinYin;
+
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.easemob.EMCallBack;
 import com.easemob.chat.EMChatManager;
@@ -82,7 +84,8 @@ public class EMConv implements ImConversation {
     //设置接收人
     message.setReceipt(mConv.getUserName());
 
-    final ImAudioMessage msg = new ImAudioMessage(EMMsg.createMessage(message), getOrderId(), filePath, seconds);
+    EMMsg emMsg = EMMsg.createMessage(message);
+    final ImAudioMessage msg = new ImAudioMessage(emMsg, getOrderId(), filePath, seconds);
     //创建录音文件时文件名是用时间生成的，生成ImAudioMessage对象后文件名会改成messageid，所以VoiceMessageBody里也要跟着改一下
 //    ((VoiceMessageBody)message.getBody()).setLocalUrl(msg.getAudioUri());
     saveMessageToDatebase(message);
@@ -170,12 +173,8 @@ public class EMConv implements ImConversation {
 
   @Override
   public String getBuddyName() {
-//    PatientInfo patient = PatientManager.getInstance().getPatient(mConv.getUserName());
-//    if (patient != null) {
-//      return patient.name;
-//    } else {
-      return ImClient.formatNameFromId(getConversationId());
-//    }
+    //Get the nick name from your own server.
+    return ImClient.formatNameFromId(getConversationId());
   }
 
   @Override
@@ -197,7 +196,7 @@ public class EMConv implements ImConversation {
 
   }
 
-  private void internalSendMessage(final ImMessage message, final ImConversationSendMessagesCallBack callBack){
+  private void internalSendMessage(final ImMessage message, final ImConversationSendMessagesCallBack callBack) {
 //    message.prepareSend();
     EMMessage msg = (EMMessage) message.getMessageObject();
     EMChatManager.getInstance().sendMessage(msg, new EMCallBack() {
@@ -261,7 +260,7 @@ public class EMConv implements ImConversation {
 //        return;
 //      }
 //    }
-
+    //文件消息 需要先上传文件再发送消息, 普通消息直接跳转到success
     message.prepareSend(new ImConversationSendMessagesCallBack() {
 
       @Override
@@ -269,9 +268,8 @@ public class EMConv implements ImConversation {
         if (success) {
           saveMessageToDatebase((EMMessage) message.getMessageObject());
           internalSendMessage(message, callBack);
-        }
-        else{
-          if(callBack != null){
+        } else {
+          if (callBack != null) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
               @Override
               public void run() {
@@ -334,10 +332,10 @@ public class EMConv implements ImConversation {
   @Override
   public String getName() {
     synchronized (this) {
-      Attr attr = getAttr();
-      if (attr != null && !TextUtils.isEmpty(attr.name)) {
-        return attr.name;
-      }
+//      Attr attr = getAttr();
+//      if (attr != null && !TextUtils.isEmpty(attr.name)) {
+//        return attr.name;
+//      }
       return getBuddyName();
     }
   }
@@ -364,7 +362,7 @@ public class EMConv implements ImConversation {
 
   @Override
   public void setOrderId(String id) {
-    synchronized (this){
+    synchronized (this) {
       if (!TextUtils.isEmpty(id)) {
         Attr attr = getAttr();
         attr.orderId = id;
@@ -424,7 +422,7 @@ public class EMConv implements ImConversation {
     }
   }
 
-  public void saveMessageToDatebase(EMMessage msg){
+  public void saveMessageToDatebase(EMMessage msg) {
     EMChatManager.getInstance().saveMessage(msg);
     EMChatManager.getInstance().updateMessageBody(msg);
 //    try {

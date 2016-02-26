@@ -6,16 +6,39 @@
     android:layout_marginTop="10dp"
     android:orientation="vertical"
     >
-
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:id="@+id/login_ll">
   <TextView
-      android:id="@+id/login_tv"
+      android:id="@+id/login_1_tv"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="10dp"
       android:background="#3f0000ff"
       android:padding="10dp"
-      android:text="login easemob"
+      android:text="Login as shuhua"
       android:textSize="20dp"/>
+  <TextView
+      android:id="@+id/login_2_tv"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="10dp"
+      android:background="#3f0000ff"
+      android:padding="10dp"
+      android:text="Login as easemob"
+      android:textSize="20dp"/>
+  <TextView
+      android:id="@+id/login_3_tv"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="10dp"
+      android:background="#3f0000ff"
+      android:padding="10dp"
+      android:text="Login as Obama"
+      android:textSize="20dp"/>
+    </LinearLayout>
 
   <LinearLayout
       android:layout_width="match_parent"
@@ -32,6 +55,16 @@
         android:background="#3f0000ff"
         android:padding="10dp"
         android:text="Chat list"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/chat_shuahua_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#3f0000ff"
+        android:padding="10dp"
+        android:text="Start chat to shuhua"
         android:textSize="20dp"/>
 
     <TextView
@@ -62,7 +95,7 @@
         android:layout_margin="10dp"
         android:background="#3f0000ff"
         android:padding="10dp"
-        android:text="loginout easemob"
+        android:text="Logout"
         android:textSize="20dp"/>
   </LinearLayout>
 </LinearLayout>

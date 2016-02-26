@@ -244,7 +244,7 @@ public class RecordButton extends Button {
   }
 
   public interface RecordEventListener {
-    public void onFinishedRecord(String audioPath, int secs);
+    void onFinishedRecord(String audioPath, int secs);
 
     void onStartRecord();
   }

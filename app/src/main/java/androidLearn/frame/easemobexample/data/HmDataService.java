@@ -18,7 +18,7 @@ import retrofit.converter.GsonConverter;
 
 public class HmDataService {
 
-  private static final String RELEASE_ENDPOINT = "http://api.huimeibest.com/rpc";
+  private static final String RELEASE_ENDPOINT = "http://7xr6tu.com1.z0.glb.clouddn.com";
   private static final String TEST_ENDPOINT = "http://api-staging.huimeibest.com/rpc";
   private static final String RELEASE_UPLOAD_ENDPOINT = "http://api-staging.huimeibest.com/storage/object/upload";
   private static final String TEST_UPLOAD_ENDPOINT = "http://api-staging.huimeibest.com/storage/object/upload";

@@ -35,7 +35,7 @@ public class ThumbnailUtil {
 	private static final int OPTIONS_SCALE_UP = 0x1;
 
 	/**
-	 * Constant used to indicate we should recycle the input in {@link #extractThumbnail(Bitmap, int, int, int)} unless the output is the input.
+	 * Constants used to indicate we should recycle the input in {@link #extractThumbnail(Bitmap, int, int, int)} unless the output is the input.
 	 */
 	private static final int OPTIONS_RECYCLE_INPUT = 0x2;
 
@@ -43,13 +43,13 @@ public class ThumbnailUtil {
 	private static final int TARGET_SIZE_FULL_THUMBNAIL = UNCONSTRAINED;
 
 	/**
-	 * Constant used to indicate the dimension of mini thumbnail.
+	 * Constants used to indicate the dimension of mini thumbnail.
 	 * @hide Only used by media framework and media provider internally.
 	 */
 	private static final int TARGET_SIZE_MINI_THUMBNAIL = 320;
 
 	/**
-	 * Constant used to indicate the dimension of micro thumbnail.
+	 * Constants used to indicate the dimension of micro thumbnail.
 	 * @hide Only used by media framework and media provider internally.
 	 */
 	private static final int TARGET_SIZE_MICRO_THUMBNAIL = 96;

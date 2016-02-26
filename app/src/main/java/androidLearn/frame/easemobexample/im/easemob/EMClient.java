@@ -137,7 +137,6 @@ public class EMClient extends ImClient implements ImConnectListener, ImMessageLi
 
           @Override
           public void onCallBack(boolean success, List<ImConversation> list) {
-            Log.e("xie", "queryResult:" + success);
             if (callBack != null) {
               new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
@@ -153,8 +152,6 @@ public class EMClient extends ImClient implements ImConnectListener, ImMessageLi
             getConversationListenerManager().onConversationListChanged();
           }
         });
-
-
       }
 
       @Override
@@ -295,6 +292,7 @@ public class EMClient extends ImClient implements ImConnectListener, ImMessageLi
     if (!mIsReceiverRegisted) {
       mIsReceiverRegisted = true;
       addMessageListener(this);
+      Log.e("xie", "EMClient registerMessageHandler");
       EMChatManager.getInstance().registerEventListener(mMsgManager);
       EMChat.getInstance().setAppInited();
     }

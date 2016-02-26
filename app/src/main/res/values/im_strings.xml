@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="title_conversation">chat list</string>
+  <string name="title_conversation">Chat list</string>
   <string name="text_ack_msg">已读</string>
   <string name="text_delivered_msg">送达</string>
   <string name="back">返回</string>
   <string name="save">保存</string>
-  <string name="button_pushtotalk">按住 说话</string>
-  <string name="button_releasetostop">松开 结束</string>
+  <string name="button_pushtotalk">Press to talk</string>
+  <string name="button_releasetostop">Release to send</string>
   <string name="button_send">send</string>
   <string name="attach_smile">表情</string>
-  <string name="attach_picture">图片</string>
+  <string name="attach_picture">picture</string>
   <string name="attach_clsoe">结束咨询</string>
-  <string name="attach_take_pic">拍照</string>
+  <string name="attach_take_pic">Take photo</string>
   <string name="attach_location">位置</string>
   <string name="attach_file">文件</string>
   <string name="attach_voice_call">语音电话</string>
   <string name="attach_word">常用短语</string>
   <string name="user_card">名片</string>
-  <string name="move_up_to_cancel">手指上滑,取消发送</string>
-  <string name="release_to_cancel">松开手指,取消发送</string>
+  <string name="move_up_to_cancel">Move your finger up to cancel</string>
+  <string name="release_to_cancel">Release your finger to cancel</string>
   <string name="send_fail">发送消息失败,</string>
   <string name="clear_records">清空记录</string>
   <string name="clear_all_records">是否清空所有聊天记录？</string>
@@ -34,8 +34,8 @@
   <string name="medical_record">[病情描述]</string>
   <string name="conversation_over">[已结束]</string>
   <string name="voice_call">[语音通话]</string>
-  <string name="chat_record_button_pleaseSayMore">说多点吧～</string>
-  <string name="chat_cancelRecord">取消录音</string>
+  <string name="chat_record_button_pleaseSayMore">please say more～</string>
+  <string name="chat_cancelRecord">record canceled</string>
   <string name="im_conversation_search_no_result">无搜索结果</string>
   <string name="im_conversation_null">no message</string>
   <string name="im_conversation_search_tip">search name</string>

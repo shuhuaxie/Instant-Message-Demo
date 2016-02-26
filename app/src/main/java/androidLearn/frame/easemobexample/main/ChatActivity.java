@@ -15,6 +15,7 @@ import androidLearn.frame.easemobExample.widget.MessageAdapter;
 import androidLearn.frame.easemobExample.widget.PlayButton;
 import androidLearn.frame.easemobExample.widget.ProgressDialogFragment;
 import androidLearn.frame.easemobExample.widget.RecordButton;
+
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,6 +26,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
@@ -47,7 +49,7 @@ import butterknife.InjectView;
 import me.iwf.photopicker.PhotoPickerActivity;
 import me.iwf.photopicker.utils.PhotoPickerIntent;
 
-public class ChatActivity extends Activity  implements ImMessageListener, View.OnClickListener, AbsListView.OnScrollListener, SwipeRefreshLayout.OnRefreshListener {
+public class ChatActivity extends Activity implements ImMessageListener, View.OnClickListener, AbsListView.OnScrollListener, SwipeRefreshLayout.OnRefreshListener {
   private static final String EXTRA_CONVERSATION_ID = "conversation_id";
   //  private static final String EXTRA_BUDDY_ID = "buddy_id";
   private static final String TAG = ChatActivity.class.getSimpleName();
@@ -82,21 +84,14 @@ public class ChatActivity extends Activity  implements ImMessageListener, View.O
   @InjectView(R.id.btn_word) View btnWord;
 
   private VoiceRecorder voiceRecorder;
-
   private Drawable[] micImages;
-
   private ImConversation conversation;
   MessageAdapter mMessageAdapter;
-
   private AtomicBoolean isLoadingMessages = new AtomicBoolean(false);
-
   private ImClient mClient;
-
   private PowerManager.WakeLock mWakeLock;
   private boolean mIsShowing = false;
-
   private ProgressDialogFragment mProgressDialog;
-
 
   public static boolean startActivity(Context context, String conversationId) {
     //目前没有群聊，会话id和buddyid是同一个东西
@@ -104,13 +99,13 @@ public class ChatActivity extends Activity  implements ImMessageListener, View.O
     return startActivityWithBuddy(context, conversation);
   }
 
-  private static AtomicBoolean isActvitiyStarting = new AtomicBoolean(false);
+  private static AtomicBoolean isActivityStarting = new AtomicBoolean(false);
 
   private static boolean startActivityWithBuddy(final Context context, ImConversation conversation) {
-    if (isActvitiyStarting.get()) {
+    if (isActivityStarting.get()) {
       return false;
     }
-    isActvitiyStarting.set(true);
+    isActivityStarting.set(true);
     if (conversation != null) {
 
       UiUtils.cancelNewMessageNotification(context);
@@ -121,10 +116,10 @@ public class ChatActivity extends Activity  implements ImMessageListener, View.O
       intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
       context.startActivity(intent);
-      isActvitiyStarting.set(false);
+      isActivityStarting.set(false);
       return true;
     }
-    isActvitiyStarting.set(false);
+    isActivityStarting.set(false);
     return false;
   }
 
@@ -148,17 +143,13 @@ public class ChatActivity extends Activity  implements ImMessageListener, View.O
   }
 
   private void intiView() {
-
     mClient = App.getInstance().getImClient();
-
     final String conversationId = getIntent().getStringExtra(EXTRA_CONVERSATION_ID);
     conversation = mClient.getConversation(conversationId);
-
+//    conversation.setName(conversationId);
     mMessageAdapter = new MessageAdapter(ChatActivity.this, ImClient.getUserId(), conversation);
     listview.setAdapter(mMessageAdapter);
-
     title.setText(conversation.getName());
-
     etSendmessage.requestFocus();
     etSendmessage.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
       @Override
@@ -272,7 +263,7 @@ public class ChatActivity extends Activity  implements ImMessageListener, View.O
         public void onFinish(boolean success, List<ImMessage> list) {
           if (success) {
             if (list.size() == 0) {
-              UiUtils.showToast(ChatActivity.this, "无更早的消息了");
+              UiUtils.showToast(ChatActivity.this, "no more messages");
             } else {
               List<ImMessage> newMessages = new ArrayList<>();
               newMessages.addAll(list);
@@ -528,7 +519,7 @@ public class ChatActivity extends Activity  implements ImMessageListener, View.O
       btnMore.setVisibility(View.GONE);
       btnSend.setVisibility(View.VISIBLE);
     }
-    if(showSoftInput){
+    if (showSoftInput) {
       InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
       imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
     }
@@ -562,9 +553,11 @@ public class ChatActivity extends Activity  implements ImMessageListener, View.O
     btnPressToSpeak.setRecordEventListener(new RecordButton.RecordEventListener() {
       @Override
       public void onFinishedRecord(final String audioPath, int secs) {
+        Log.e("xie", "audioPath:" + audioPath + ",sec:" + secs);
         ImMessage message = conversation.createAudioMessage(audioPath, secs, new ImConversation.ImConversationSendMessagesCallBack() {
           @Override
           public void onFinish(boolean success, ImMessage msg) {
+            Log.e("xie", "onFinish:" + success);
             mMessageAdapter.notifyDataSetChanged();
             scrollToLast();
           }
@@ -626,8 +619,8 @@ public class ChatActivity extends Activity  implements ImMessageListener, View.O
     }
   }
 
-  private void updateOrder(){
-    if(conversation != null){
+  private void updateOrder() {
+    if (conversation != null) {
 //      HmDataService.getInstance().getOrderById(conversation.getOrderId()).
 //          observeOn(AndroidSchedulers.mainThread())
 //          .subscribe(

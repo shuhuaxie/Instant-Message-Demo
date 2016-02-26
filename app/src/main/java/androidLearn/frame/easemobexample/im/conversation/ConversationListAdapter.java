@@ -23,9 +23,6 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-/**
- * Created by 明帅 on 2015/8/29.
- */
 public class ConversationListAdapter extends BaseAdapter {
 
   private List<String> list;
@@ -89,7 +86,7 @@ public class ConversationListAdapter extends BaseAdapter {
 
         holder.time.setText(DateUtils.getTimestampString(new Date(message.getTime())));
       } else {
-        holder.info.setText("没有消息");
+        holder.info.setText("no message");
         holder.time.setText("");
       }
 

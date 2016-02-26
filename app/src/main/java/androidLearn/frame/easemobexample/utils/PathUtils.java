@@ -77,6 +77,10 @@ public class PathUtils {
     return path;
   }
 
+  public static String getAudioPathByURL(String url) {
+    String path = new File(getAvailableCacheDir(), "audio_" + url).getAbsolutePath();
+    return path;
+  }
   public static String getAudioPathByMessageId(String conversationId, String messageId) {
     String path = new File(getConversationFilePath(conversationId), "audio_" + messageId).getAbsolutePath();
     return path;

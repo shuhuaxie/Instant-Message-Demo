@@ -7,6 +7,7 @@ import androidLearn.frame.easemobExample.data.CacheKeys;
 import androidLearn.frame.easemobExample.data.DataManager;
 import androidLearn.frame.easemobExample.data.LocalCacheUtils;
 import androidLearn.frame.easemobExample.data.entity.User;
+import androidLearn.frame.easemobExample.im.ImClient;
 import androidLearn.frame.easemobExample.utils.BitmapLoader;
 import androidLearn.frame.easemobExample.utils.PathUtils;
 
@@ -78,19 +79,19 @@ public class AccountManager {
 
   public void logout(Activity activity, final boolean showLoginActivity) {
     //停止ChatService
-//    ChatService.stopChatService(App.getInstance());
+    ChatService.stopChatService(App.getInstance());
 //    //取消别名和设备的绑定，否则用别的账号登录后还会收到前一账号的推送通知
 //    //清除用户缓存
-//    clearUser();
+    clearUser();
 //    CommonUtils.sendBadge(0);
     //清除患者相关缓存
 //    PatientListManager.getInstance().clearCache();
 //    PatientManager.getInstance().clearCache();
     //关闭IM连接
-//    ImClient imClient = App.getInstance().getImClient();
-//    if (imClient != null && imClient.isLoggedIn()) {
-//      imClient.close(null);
-//    }
+    ImClient imClient = App.getInstance().getImClient();
+    if (imClient != null && imClient.isLoggedIn()) {
+      imClient.close(null);
+    }
 
 //    if (showLoginActivity && activity != null) {
 //      if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {

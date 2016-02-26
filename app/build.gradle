@@ -37,4 +37,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     compile 'me.iwf.photopicker:PhotoPicker:0.2.7@aar'
+    compile 'com.qiniu:qiniu-android-sdk:7.1.+'
 }

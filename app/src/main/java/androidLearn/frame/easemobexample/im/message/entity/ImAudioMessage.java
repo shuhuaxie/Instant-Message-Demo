@@ -6,7 +6,9 @@ import androidLearn.frame.easemobExample.data.response.BaseResponse;
 import androidLearn.frame.easemobExample.im.easemob.EMAudioMsg;
 import androidLearn.frame.easemobExample.im.message.ImMessageType;
 import androidLearn.frame.easemobExample.utils.PathUtils;
+
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,9 +37,9 @@ public class ImAudioMessage extends ImFileMessage {
     return ImMessageType.notice_voice;
   }
 
-  private static class AudioData{
+  private static class AudioData {
     public String url;
-    public String url_mp3;
+    //    public String url_mp3;
     public int duration;
   }
 
@@ -46,41 +48,45 @@ public class ImAudioMessage extends ImFileMessage {
   protected ImAudioMessage(ImMessageInternalInterface internalMessage) {
     super(internalMessage);
 
-    if(internalMessage instanceof EMAudioMsg){
+    if (internalMessage instanceof EMAudioMsg) {
       //兼容旧环信消息
       mData = new AudioData();
-      try{
-        ImAudioMessageInternalInterface audioMessge = (ImAudioMessageInternalInterface)mMessage;
+      try {
+        ImAudioMessageInternalInterface audioMessge = (ImAudioMessageInternalInterface) mMessage;
         mData.url = audioMessge.getAudioUri();
-        mData.duration = (int)audioMessge.getDuration();
+        mData.duration = (int) audioMessge.getDuration();
         moveCacheFile(mData.url);
-      }
-      catch(Exception e){
+      } catch (Exception e) {
         e.printStackTrace();
       }
       return;
     }
 
-
     String content = getContentString();
-    if(!TextUtils.isEmpty(content)){
+    Log.e("xie", "ImAudioMessage:" + content);
+    if (!TextUtils.isEmpty(content)) {
       mData = new Gson().fromJson(content, AudioData.class);
     }
-    if(mData == null){
+    final String localFileUri = getDownloadLocalCacheFilePath();
+    File downFile = new File(localFileUri);
+    if (downFile == null || !downFile.exists()) {
+      downloadFile();
+    }
+    if (mData == null) {
       mData = new AudioData();
       //如果是发送消息，尝试恢复内容
-      if(isSendMessage()){
+      if (isSendMessage()) {
         //设置为本地文件地址
-        mData.url = getLocalFilePath();
+        mData.url = getUploadLocalFilePath();
         //尝试从数据库中读取音频长度
 //        MessageData data = MessageData.getMessageData(internalMessage.getMessageId());
 //        if(data != null){
 //          mData.duration = Integer.parseInt(data.ext);
 //        }
 //        else{ //如果数据库不存在，尝试直接分析文件内容取得长度
-          File file = new File(getLocalFilePath());
-          if(file != null && file.exists()){
-            mData.duration = getAmrDuration(file);
+        File file = new File(getUploadLocalFilePath());
+        if (file != null && file.exists()) {
+          mData.duration = getAmrDuration(file);
 //          }
         }
       }
@@ -93,46 +99,46 @@ public class ImAudioMessage extends ImFileMessage {
   }
 
   public ImAudioMessage(ImMessageInternalInterface internalMessage, String orderId, String path,
-    double duration){
+                        double duration) {
     super(internalMessage, orderId, path);
     mData = new AudioData();
-    mData.duration = (int)duration;
+    mData.duration = (int) duration;
     moveCacheFile(path);
     saveTempSendData(path, String.valueOf(mData.duration));
   }
 
 
-  public double getDuration(){
+  public double getDuration() {
     return mData.duration;
   }
 
-  public String getAudioUri(){
-    return getLocalFilePath();
+  public String getAudioUri() {
+    return getUploadLocalFilePath();
   }
 
   @Override
-  public String getTitle(){
+  public String getTitle() {
     return App.getInstance().getString(R.string.voice);
   }
 
   @Override
-  protected String onUploadSuccess(String response){
-    String err = "upload file error. response:" + response;
-    try{
-      if(!TextUtils.isEmpty(response)){
-        AudioUploadResponse r = new Gson().fromJson(response, AudioUploadResponse.class);
-        if(r.status == 0 && r.data != null && r.data.attachment != null){
-          AudioData data = new AudioData();
-          data.url = r.data.attachment.url;
-          data.url_mp3 = r.data.attachment.url_mp3;
-          data.duration = mData.duration;
-          setAttribute(ImMessage.ATTR_MSG_CONTENT, new GsonBuilder().disableHtmlEscaping().create().toJson(data));
-          super.onUploadSuccess(response);
-          return null;
-        }
+  protected String onUploadSuccess(String uploadAddress) {
+
+    String err = "upload file error. response:" + uploadAddress;
+    try {
+      if (!TextUtils.isEmpty(uploadAddress)) {
+//        AudioUploadResponse r = new Gson().fromJson(uploadAddress, AudioUploadResponse.class);
+//        if (r.status == 0 && r.data != null && r.data.attachment != null) {
+        AudioData data = new AudioData();
+        data.url = uploadAddress;
+//          data.url_mp3 = r.data.attachment.url_mp3;
+        data.duration = mData.duration;
+        setAttribute(ImMessage.ATTR_MSG_CONTENT, new GsonBuilder().disableHtmlEscaping().create().toJson(data));
+        super.onUploadSuccess(uploadAddress);
+        return null;
+//        }
       }
-    }
-    catch (Exception e){
+    } catch (Exception e) {
       e.printStackTrace();
     }
     onUploadFail(err);
@@ -141,11 +147,12 @@ public class ImAudioMessage extends ImFileMessage {
 
   @Override
   protected String getDownloadUrl() {
+    Log.e("xie", "url:" + mData.url);
     return mData.url;
   }
 
   @Override
-  protected String getLocalFilePath() {
+  protected String getUploadLocalFilePath() {
     String cachePath = PathUtils.getAudioPathByMessageId(getConversationId(), getMessageId());
     if ((TextUtils.isEmpty(cachePath) || !new File(cachePath).exists()) && isSendMessage()) {
 //      MessageData data = getMessageData();
@@ -158,22 +165,23 @@ public class ImAudioMessage extends ImFileMessage {
   }
 
   @Override
-  protected String getLocalCacheFilePath() {
+  protected String getDownloadLocalCacheFilePath() {
     return PathUtils.getAudioPathByMessageId(getConversationId(), getMessageId());
   }
 
   @Override
-  public void onMessageReceived(){
+  public void onMessageReceived() {
+    Log.e("xie", "onMessageReceived");
     downloadFile();
   }
 
-  private static class AudioUploadResponseData{
+  private static class AudioUploadResponseData {
     public Attachment attachment;
   }
 
-  private static class Attachment{
+  private static class Attachment {
     public String url;
-    public String url_mp3;
+//    public String url_mp3;
   }
 
   private static class AudioUploadResponse extends BaseResponse {
@@ -182,8 +190,8 @@ public class ImAudioMessage extends ImFileMessage {
 
   private static int getAmrDuration(File file) {
     long duration = -1;
-    int[] packedSize = { 12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0,
-        0, 0 };
+    int[] packedSize = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0,
+        0, 0};
     RandomAccessFile randomAccessFile = null;
     try {
       randomAccessFile = new RandomAccessFile(file, "rw");
@@ -218,9 +226,9 @@ public class ImAudioMessage extends ImFileMessage {
         }
       }
     }
-    if(duration < 0){
+    if (duration < 0) {
       return 0;
     }
-    return (int)((duration/1000)+1);
+    return (int) ((duration / 1000) + 1);
   }
 }

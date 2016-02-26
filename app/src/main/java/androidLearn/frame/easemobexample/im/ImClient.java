@@ -191,10 +191,10 @@ public abstract class ImClient {
   public static String formatNameFromId(String id) {
     StringBuffer name = new StringBuffer("");
     name.append(id);
-    if (name.length() > 6) {
-      name.delete(6, name.length());
-    }
-    name.insert(0, "[用户]");
+//    if (name.length() > 6) {
+//      name.delete(6, name.length());
+//    }
+//    name.insert(0, "[用户]");
     return name.toString();
   }
 }

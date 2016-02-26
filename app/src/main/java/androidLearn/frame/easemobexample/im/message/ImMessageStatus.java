@@ -1,9 +1,5 @@
 package androidLearn.frame.easemobExample.im.message;
 
-/**
- * Created by 明帅 on 2015/9/6.
- */
-
 public enum ImMessageStatus {
   Create,      //创建成功
   Progressing, //传输中

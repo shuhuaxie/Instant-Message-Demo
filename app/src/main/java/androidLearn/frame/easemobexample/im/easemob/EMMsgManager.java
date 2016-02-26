@@ -1,5 +1,7 @@
 package androidLearn.frame.easemobExample.im.easemob;
 
+import android.util.Log;
+
 import androidLearn.frame.easemobExample.im.conversation.ImConversation;
 import androidLearn.frame.easemobExample.im.conversation.ImConversationListenerManager;
 import androidLearn.frame.easemobExample.im.message.ImMessageListenerManager;
@@ -25,18 +27,15 @@ public class EMMsgManager implements EMEventListener {
 
   @Override
   public void onEvent(EMNotifierEvent event) {
-
-
+    Log.e("xie", "onEvent..." +event.getEvent().toString());
     switch (event.getEvent()) {
       case EventNewMessage:
       case EventOfflineMessage: {
         EMMessage message = (EMMessage) event.getData();
         EMConversation conversation = EMChatManager.getInstance().getConversation(message.getUserName());
         conversation.addMessage(message);
-
         final ImMessage msg = ImMessage.createMessage(EMMsg.createMessage(message));
         final ImConversation conv = EMClient.getInstance().getConversation(conversation.getUserName(), msg);
-
         if (message.getType() == EMMessage.Type.VOICE || message.getType() == EMMessage.Type.IMAGE) {
           if (message.status == EMMessage.Status.INPROGRESS) {
             ((FileMessageBody) message.getBody()).setDownloadCallback(new EMCallBack() {
@@ -58,7 +57,6 @@ public class EMMsgManager implements EMEventListener {
             });
           }
         }
-
         msg.onMessageReceived();
         IMLM.onMessageReceived(msg, conv);
       }

@@ -1,12 +1,18 @@
 package androidLearn.frame.easemobExample.im.message.entity;
 
+import androidLearn.frame.easemobExample.common.Constants;
 import androidLearn.frame.easemobExample.data.HmDataService;
 import androidLearn.frame.easemobExample.data.entity.MessageData;
 import androidLearn.frame.easemobExample.im.conversation.ImConversation;
 import androidLearn.frame.easemobExample.im.message.ImMessageStatus;
 import androidLearn.frame.easemobExample.utils.FileUtils;
-import android.text.TextUtils;
 
+import android.text.TextUtils;
+import android.util.Log;
+
+import com.qiniu.android.http.ResponseInfo;
+import com.qiniu.android.storage.UpCompletionHandler;
+import com.qiniu.android.storage.UploadManager;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.Headers;
@@ -15,6 +21,8 @@ import com.squareup.okhttp.MultipartBuilder;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
+
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -27,6 +35,7 @@ import java.util.Map;
 public abstract class ImFileMessage extends ImMessage {
 
   private String tempCachePath;
+  private UploadManager uploadManager;
   protected static MessageTransferManager transferManager = MessageTransferManager.getInstance();
 
   public interface uploadFileCallback {
@@ -57,7 +66,7 @@ public abstract class ImFileMessage extends ImMessage {
 
     setStatus(ImMessageStatus.Progressing);
 
-    String path = getLocalFilePath();
+    String path = getUploadLocalFilePath();
     if (TextUtils.isEmpty(path)) {
       onUploadFail("upload file path is empty");
       return;
@@ -67,26 +76,53 @@ public abstract class ImFileMessage extends ImMessage {
       onUploadFail("upload file not exist");
       return;
     }
-    Request request = buildMultipartFormRequest(HmDataService.getInstance().getUploadEndPoint(), new File[]{file}, new String[]{"attachment"}, null);
-    httpClient.newCall(request).enqueue(new Callback() {
-      @Override
-      public void onFailure(Request request, IOException e) {
-        transferManager.uploadStop(getMessageId());
-        onUploadFail(e.getMessage());
-        if (callback != null) {
-          callback.onUploadFinish(false, "upload file err:" + e.getMessage());
-        }
-      }
+    if (uploadManager == null) {
+      uploadManager = new UploadManager();
+    }
+    Log.e("xie", "file:" + file.getAbsolutePath().toString());
+    uploadManager.put(file, null, Constants.token,
+        new UpCompletionHandler() {
+          @Override
+          public void complete(String key, ResponseInfo respInfo,
+                               JSONObject jsonData) {
+            try {
+              if (respInfo.isOK()) {
+                // file address
+                onUploadSuccess(jsonData.getString("hash"));
+                callback.onUploadFinish(true, "upload file success...");
+              } else {
+                callback.onUploadFinish(false, "upload file err:" + respInfo.error);
+              }
+            } catch (Exception e) {
 
-      @Override
-      public void onResponse(Response response) throws IOException {
-        transferManager.uploadStop(getMessageId());
-        String result = onUploadSuccess(response.body().string());
-        if (callback != null) {
-          callback.onUploadFinish(TextUtils.isEmpty(result), result);
-        }
-      }
-    });
+            }
+          }
+
+        }, null);
+
+
+//    Request request = buildMultipartFormRequest(HmDataService.getInstance().getUploadEndPoint(), new File[]{file}, new String[]{"attachment"}, null);
+//    httpClient.newCall(request).enqueue(new Callback() {
+//      @Override
+//      public void onFailure(Request request, IOException e) {
+//        Log.e("xie", "onFailure..." + e.getMessage());
+//        transferManager.uploadStop(getMessageId());
+//        onUploadFail(e.getMessage());
+//        if (callback != null) {
+//          callback.onUploadFinish(false, "upload file err:" + e.getMessage());
+//        }
+//      }
+//
+//      @Override
+//      public void onResponse(Response response) throws IOException {
+//        transferManager.uploadStop(getMessageId());
+//        String result = onUploadSuccess(response.body().string());
+//        if (callback != null) {
+//          Log.e("xie", "onResponse..." + response);
+//          callback.onUploadFinish(TextUtils.isEmpty(result), result);
+//        }
+//      }
+//    });
   }
 
   protected String onUploadSuccess(String response) {
@@ -95,37 +131,40 @@ public abstract class ImFileMessage extends ImMessage {
   }
 
   protected void onUploadFail(String err) {
+
     setStatus(ImMessageStatus.Fail);
   }
 
   protected abstract String getDownloadUrl();
 
   //待上传的本地文件路径
-  protected abstract String getLocalFilePath();
+  protected abstract String getUploadLocalFilePath();
 
   //本地文件缓存路径，路径应该是固定的:cacheFileDir/[conversationid]/[messsagetype]_[messageid], 这个文件并不一定实际存在
-  protected abstract String getLocalCacheFilePath();
+  protected abstract String getDownloadLocalCacheFilePath();
 
   public void downloadFile() {
-
+    Log.e("xie", "downloadFile...");
     if (transferManager.isDownloading(getMessageId())) {
       return;
     }
 
     transferManager.downloadStart(getMessageId());
 
-    String remoteUri = getDownloadUrl();
-    final String localFileUri = getLocalCacheFilePath();
+    String remoteUri = HmDataService.getInstance().getEndPoint() + "/" + getDownloadUrl();
+    final String localFileUri = getDownloadLocalCacheFilePath();
     if (TextUtils.isEmpty(remoteUri) || TextUtils.isEmpty(localFileUri)) {
       onDownloadFail("download err.Url or file path is empty");
       return;
     }
 
     File file = new File(localFileUri);
-    if(file!= null && file.exists()){
+    if (file != null && file.exists()) {
       return;
     }
 
+    Log.e("xie", "ImFileMessage downloadFile remoteUri" + remoteUri);
+    Log.e("xie", "ImFileMessage downloadFile file:" + file.getAbsolutePath().toString());
     setStatus(ImMessageStatus.Progressing);
     final Request request = new Request.Builder()
         .url(remoteUri)
@@ -222,10 +261,10 @@ public abstract class ImFileMessage extends ImMessage {
   }
 
   protected void moveCacheFile(String srcPath) {
-    if (!TextUtils.isEmpty(srcPath) && !srcPath.equals(getLocalCacheFilePath())) {
+    if (!TextUtils.isEmpty(srcPath) && !srcPath.equals(getDownloadLocalCacheFilePath())) {
       File temp = new File(srcPath);
       if (temp.exists()) {
-        File cache = new File(getLocalCacheFilePath());
+        File cache = new File(getDownloadLocalCacheFilePath());
         if (cache.exists()) {
           cache.delete();
         }
@@ -237,20 +276,19 @@ public abstract class ImFileMessage extends ImMessage {
   }
 
   @Override
-  public void prepareSend(final ImConversation.ImConversationSendMessagesCallBack callBack){
-    tempCachePath = getLocalCacheFilePath();
-    if(TextUtils.isEmpty(getContentString())){  //没有content说明上传还没有成功，需要先上传文件
+  public void prepareSend(final ImConversation.ImConversationSendMessagesCallBack callBack) {
+    tempCachePath = getDownloadLocalCacheFilePath();
+    if (TextUtils.isEmpty(getContentString())) {  //没有content说明上传还没有成功，需要先上传文件
       uploadFile(new ImFileMessage.uploadFileCallback() {
         @Override
         public void onUploadFinish(final boolean success, String err) {
-         if(callBack != null){
-           callBack.onFinish(success, ImFileMessage.this);
-         }
+          if (callBack != null) {
+            callBack.onFinish(success, ImFileMessage.this);
+          }
         }
       });
-    }
-    else{ //上传完成了，可以直接发送
-      if(callBack != null){
+    } else { //上传完成了，可以直接发送
+      if (callBack != null) {
         callBack.onFinish(true, ImFileMessage.this);
       }
     }
@@ -267,7 +305,7 @@ public abstract class ImFileMessage extends ImMessage {
 
   protected void saveTempSendData(String originLocalFilePath, String ext) {
     MessageData data = new MessageData();
-    String cachePath = getLocalCacheFilePath();
+    String cachePath = getDownloadLocalCacheFilePath();
     if (TextUtils.isEmpty(cachePath) || !new File(cachePath).exists()) {
       cachePath = originLocalFilePath;
     }
@@ -292,8 +330,8 @@ public abstract class ImFileMessage extends ImMessage {
 //  }
 
   @Override
-  public void onMessageRemoved(){
-    FileUtils.deleteFile(getLocalCacheFilePath());  //删除本地缓存，不能用getLocalFilePath，那样有可能删除源文件
+  public void onMessageRemoved() {
+    FileUtils.deleteFile(getDownloadLocalCacheFilePath());  //删除本地缓存，不能用getLocalFilePath，那样有可能删除源文件
     deleteTempSendData();
   }
 }

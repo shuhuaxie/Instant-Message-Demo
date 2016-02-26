@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -34,7 +33,7 @@ public class ChatListActivity extends Activity implements ImConversationListener
 
   private ConversationListAdapter mAdapter = new ConversationListAdapter();
   private ImClient mClient = App.getInstance().getImClient();
-  private AtomicBoolean isLoadingData = new AtomicBoolean(false);
+  private AtomicBoolean mIsLoadingData = new AtomicBoolean(false);
 
   @InjectView(R.id.searchtext) EditText mSearchText;
   @InjectView(R.id.clearSearch) ImageView mClearSearch;
@@ -92,11 +91,11 @@ public class ChatListActivity extends Activity implements ImConversationListener
 
   private synchronized void initConversationData() {
 
-    if (isLoadingData.get()) {
+    if (mIsLoadingData.get()) {
       return;
     }
 
-    isLoadingData.set(true);
+    mIsLoadingData.set(true);
 
     mClient.getAllConversations(new ImClient.ImClientConversationListCallBack() {
       @Override
@@ -116,7 +115,7 @@ public class ChatListActivity extends Activity implements ImConversationListener
           }
         }
         mAdapter.notifyDataSetChanged();
-        isLoadingData.set(false);
+        mIsLoadingData.set(false);
       }
     });
   }

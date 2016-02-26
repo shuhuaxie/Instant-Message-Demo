@@ -70,8 +70,8 @@ public class ImImageMessage extends ImFileMessage {
     if (mPath == null) {  //content为空或者mPath为空可能是之前上传图片失败
       mPath = new ImagePath();
       if(isSendMessage()){  //只有发送消息才可能会出现这种问题，如果接收消息也出现了那么就是严重的异常，也没法处理了。。。
-        mPath.url = getLocalFilePath();
-        mPath.url_thumb = getLocalFilePath();
+        mPath.url = getUploadLocalFilePath();
+        mPath.url_thumb = getUploadLocalFilePath();
       }
     }
   }
@@ -167,7 +167,7 @@ public class ImImageMessage extends ImFileMessage {
         ImageUploadResponse r = new Gson().fromJson(response, ImageUploadResponse.class);
         if (r.status == 0 && r.data != null && r.data.attachment != null) {
           ImagePath data = new ImagePath();
-          BitmapUtils.Size size = BitmapUtils.getImageSize(getLocalFilePath());
+          BitmapUtils.Size size = BitmapUtils.getImageSize(getUploadLocalFilePath());
           data.height = size.height;
           data.width = size.width;
           data.url = r.data.attachment.url;
@@ -202,7 +202,7 @@ public class ImImageMessage extends ImFileMessage {
   }
 
   @Override
-  protected String getLocalFilePath() {
+  protected String getUploadLocalFilePath() {
     String cachePath = PathUtils.getPicturePathByMessageId(getConversationId(), getMessageId(), false);
     if ((TextUtils.isEmpty(cachePath) || !new File(cachePath).exists()) && isSendMessage()) {
 //      MessageData data = getMessageData();
@@ -215,7 +215,7 @@ public class ImImageMessage extends ImFileMessage {
   }
 
   @Override
-  protected String getLocalCacheFilePath() {
+  protected String getDownloadLocalCacheFilePath() {
     return PathUtils.getPicturePathByMessageId(getConversationId(), getMessageId(), false);
   }
 

@@ -1,6 +1,7 @@
 package androidLearn.frame.easemobExample.im.conversation.ImUi;
 
 import android.content.Context;
+
 import androidLearn.frame.easemobExample.R;
 import androidLearn.frame.easemobExample.im.conversation.ImConversation;
 import androidLearn.frame.easemobExample.im.message.entity.ImAudioMessage;
@@ -8,6 +9,8 @@ import androidLearn.frame.easemobExample.im.message.entity.ImMessage;
 import androidLearn.frame.easemobExample.widget.MessageAdapter;
 import androidLearn.frame.easemobExample.widget.PlayButton;
 import androidLearn.frame.easemobExample.widget.PortraitView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -131,6 +134,7 @@ public class VoiceMessageHandler extends BaseMessageUIHandler implements View.On
         ImMessage message = (ImMessage) v.getTag();
         h.btn_play.setPath(((ImAudioMessage) message).getAudioUri());
         h.btn_play.performClick();
+        Log.e("xie","btn_play:"+ ((ImAudioMessage) message).getAudioUri());
       }
       break;
     }
