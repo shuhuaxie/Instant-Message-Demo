@@ -5,4 +5,4 @@ Update the token is required to upload voice and picture, If you need to use the
 
 easemob http://www.easemob.com/
 
-qiniu https://portal.qiniu.com/
+qiniu https://www.qiniu.com/
