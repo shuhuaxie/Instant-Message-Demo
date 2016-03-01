@@ -210,36 +210,6 @@
                     android:textColor="@android:color/black"
                     android:drawableTop="@drawable/im_button_pic"/>
 
-                <TextView
-                    android:id="@+id/btn_word"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/attach_word"
-                    android:textColor="@android:color/black"
-                    android:drawableTop="@drawable/im_button_word"/>
-
-                <TextView
-                    android:id="@+id/btn_close"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/attach_clsoe"
-                    android:textColor="@android:color/black"
-                    android:drawableTop="@drawable/im_button_close"/>
-
-                <TextView
-                    android:id="@+id/btn_take_picture"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/attach_take_pic"
-                    android:textColor="@android:color/black"
-                    android:drawableTop="@drawable/im_button_camera"
-                    android:visibility="invisible"/>
             </LinearLayout>
 
             <LinearLayout
@@ -247,17 +217,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="4">
-
-                <TextView
-                    android:id="@+id/btn_location"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/attach_location"
-                    android:textColor="@android:color/black"
-                    android:drawableTop="@drawable/im_button_camera"
-                    android:visibility="invisible"/>
             </LinearLayout>
 
         </LinearLayout>

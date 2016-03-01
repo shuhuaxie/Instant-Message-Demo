@@ -54,7 +54,9 @@
         android:theme="@style/AppTheme.NoActionBar">
 
     </activity>
-
+    <activity
+        android:name="me.iwf.photopicker.PhotoPickerActivity"
+        android:theme="@style/Theme.AppCompat.NoActionBar"/>
     <activity
         android:name=".main.ChatListActivity"
         android:screenOrientation="portrait"

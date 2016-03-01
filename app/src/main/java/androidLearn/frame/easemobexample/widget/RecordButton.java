@@ -10,6 +10,7 @@ import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -145,7 +146,9 @@ public class RecordButton extends Button {
   }
 
   private void startRecord() {
-    setSavePath(PathUtils.getRecordPathByCurrentTime(conversationId));
+    String recordPathByCurrentTime = PathUtils.getRecordPathByCurrentTime(conversationId);
+    setSavePath(recordPathByCurrentTime);
+    Log.e("xie", "recordPathByCurrentTime:" + recordPathByCurrentTime);
     startTime = System.currentTimeMillis();
     setBackgroundResource(BACK_RECORDING);
     startRecording();

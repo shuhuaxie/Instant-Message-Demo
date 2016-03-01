@@ -38,4 +38,7 @@ dependencies {
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     compile 'me.iwf.photopicker:PhotoPicker:0.2.7@aar'
     compile 'com.qiniu:qiniu-android-sdk:7.1.+'
+    compile 'me.iwf.photopicker:PhotoPicker:0.2.7@aar'
+    // for PhotoPicker
+    compile 'com.nineoldandroids:library:2.4.0'
 }

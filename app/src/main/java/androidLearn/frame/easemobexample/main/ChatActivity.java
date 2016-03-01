@@ -72,16 +72,12 @@ public class ChatActivity extends Activity implements ImMessageListener, View.On
   @InjectView(R.id.rl_bottom) LinearLayout rlBottom;
   @InjectView(R.id.vPager) ViewPager vPager;
   @InjectView(R.id.ll_face_container) LinearLayout llFaceContainer;
-  @InjectView(R.id.btn_take_picture) View btnTakePicture;
   @InjectView(R.id.btn_picture) View btnPicture;
-  @InjectView(R.id.btn_location) View btnLocation;
-  @InjectView(R.id.btn_close) View btnClose;
   @InjectView(R.id.ll_btn_container) LinearLayout llBtnContainer;
   @InjectView(R.id.more) LinearLayout more;
   @InjectView(R.id.bar_bottom) LinearLayout barBottom;
   @InjectView(R.id.back) View back;
   @InjectView(R.id.chat_swipe_layout) SwipeRefreshLayout chatSwipeLayout;
-  @InjectView(R.id.btn_word) View btnWord;
 
   private VoiceRecorder voiceRecorder;
   private Drawable[] micImages;
@@ -198,9 +194,7 @@ public class ChatActivity extends Activity implements ImMessageListener, View.On
     btnSetModeKeyboard.setOnClickListener(this);
     btnMore.setOnClickListener(this);
     btnPicture.setOnClickListener(this);
-    btnClose.setOnClickListener(this);
     back.setOnClickListener(this);
-    btnWord.setOnClickListener(this);
 
     chatSwipeLayout.setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
         android.R.color.holo_orange_light, android.R.color.holo_red_light);
@@ -323,33 +317,6 @@ public class ChatActivity extends Activity implements ImMessageListener, View.On
         pickImage();
         more();
         break;
-      case R.id.btn_close: {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);  //先得到构造器
-////        builder.setTitle(R.string.attach_clsoe); //设置标题
-//        builder.setMessage(R.string.im_conversation_end_tip); //设置内容
-////        builder.setIcon(R.mipmap.ic_launcher);//设置图标，图片id即可
-//        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() { //设置确定按钮
-//          @Override
-//          public void onClick(DialogInterface dialog, int which) {
-//            dialog.dismiss(); //关闭dialog
-//            endConversation();
-//          }
-//        });
-//        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() { //设置取消按钮
-//          @Override
-//          public void onClick(DialogInterface dialog, int which) {
-//            dialog.dismiss();
-//          }
-//        });
-//        builder.create().show();
-      }
-      break;
-      case R.id.btn_word: {
-//        Intent intent = new Intent(this, CommonPhraseActivity.class);
-//        intent.putExtra(CommonPhraseActivity.EXTRA_IS_NEED_RETURN, true);
-//        startActivityForResult(intent, ACTIVITY_RESULT_PICK_PHRASE);
-      }
-      break;
       default:
         break;
     }
@@ -553,11 +520,9 @@ public class ChatActivity extends Activity implements ImMessageListener, View.On
     btnPressToSpeak.setRecordEventListener(new RecordButton.RecordEventListener() {
       @Override
       public void onFinishedRecord(final String audioPath, int secs) {
-        Log.e("xie", "audioPath:" + audioPath + ",sec:" + secs);
         ImMessage message = conversation.createAudioMessage(audioPath, secs, new ImConversation.ImConversationSendMessagesCallBack() {
           @Override
           public void onFinish(boolean success, ImMessage msg) {
-            Log.e("xie", "onFinish:" + success);
             mMessageAdapter.notifyDataSetChanged();
             scrollToLast();
           }
@@ -587,14 +552,6 @@ public class ChatActivity extends Activity implements ImMessageListener, View.On
     super.onActivityResult(requestCode, resultCode, data);
     if (resultCode == RESULT_OK) {
       switch (requestCode) {
-//        case ACTIVITY_RESULT_PICK_PHRASE: {
-//          if(data != null){
-//            String phrase = data.getStringExtra(CommonPhraseActivity.EXTRA_LOCATION);
-//            etSendmessage.setText(phrase);
-//            etSendmessage.setSelection(etSendmessage.getEditableText().toString().length());
-//          }
-//        }
-//        break;
         case ACTIVITY_RESULT_PICK_IMAGE: {
           if (data != null) {
             ArrayList<String> photos =

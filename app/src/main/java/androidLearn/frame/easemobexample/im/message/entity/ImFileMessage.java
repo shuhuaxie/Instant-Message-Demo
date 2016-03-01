@@ -58,6 +58,7 @@ public abstract class ImFileMessage extends ImMessage {
   public abstract String getUploadFileExtensionName();
 
   public void uploadFile(final uploadFileCallback callback) {
+    Log.e("xie", "uploadFile...");
     if (transferManager.isUploading(getMessageId())) {
       return;
     }
@@ -67,6 +68,7 @@ public abstract class ImFileMessage extends ImMessage {
     setStatus(ImMessageStatus.Progressing);
 
     String path = getUploadLocalFilePath();
+    Log.e("xie", "ImFileMessage getUploadLocalFilePath  path:"+ path);
     if (TextUtils.isEmpty(path)) {
       onUploadFail("upload file path is empty");
       return;
@@ -79,8 +81,7 @@ public abstract class ImFileMessage extends ImMessage {
     if (uploadManager == null) {
       uploadManager = new UploadManager();
     }
-    Log.e("xie", "file:" + file.getAbsolutePath().toString());
-    uploadManager.put(file, null, Constants.token,
+    uploadManager.put(file, null, Constants.uploadToken,
         new UpCompletionHandler() {
           @Override
           public void complete(String key, ResponseInfo respInfo,
@@ -141,10 +142,9 @@ public abstract class ImFileMessage extends ImMessage {
   protected abstract String getUploadLocalFilePath();
 
   //本地文件缓存路径，路径应该是固定的:cacheFileDir/[conversationid]/[messsagetype]_[messageid], 这个文件并不一定实际存在
-  protected abstract String getDownloadLocalCacheFilePath();
+  protected abstract String getDownloadLocalFilePath();
 
   public void downloadFile() {
-    Log.e("xie", "downloadFile...");
     if (transferManager.isDownloading(getMessageId())) {
       return;
     }
@@ -152,7 +152,7 @@ public abstract class ImFileMessage extends ImMessage {
     transferManager.downloadStart(getMessageId());
 
     String remoteUri = HmDataService.getInstance().getEndPoint() + "/" + getDownloadUrl();
-    final String localFileUri = getDownloadLocalCacheFilePath();
+    final String localFileUri = getDownloadLocalFilePath();
     if (TextUtils.isEmpty(remoteUri) || TextUtils.isEmpty(localFileUri)) {
       onDownloadFail("download err.Url or file path is empty");
       return;
@@ -163,8 +163,6 @@ public abstract class ImFileMessage extends ImMessage {
       return;
     }
 
-    Log.e("xie", "ImFileMessage downloadFile remoteUri" + remoteUri);
-    Log.e("xie", "ImFileMessage downloadFile file:" + file.getAbsolutePath().toString());
     setStatus(ImMessageStatus.Progressing);
     final Request request = new Request.Builder()
         .url(remoteUri)
@@ -261,10 +259,10 @@ public abstract class ImFileMessage extends ImMessage {
   }
 
   protected void moveCacheFile(String srcPath) {
-    if (!TextUtils.isEmpty(srcPath) && !srcPath.equals(getDownloadLocalCacheFilePath())) {
+    if (!TextUtils.isEmpty(srcPath) && !srcPath.equals(getUploadLocalFilePath())) {
       File temp = new File(srcPath);
       if (temp.exists()) {
-        File cache = new File(getDownloadLocalCacheFilePath());
+        File cache = new File(getUploadLocalFilePath());
         if (cache.exists()) {
           cache.delete();
         }
@@ -277,8 +275,10 @@ public abstract class ImFileMessage extends ImMessage {
 
   @Override
   public void prepareSend(final ImConversation.ImConversationSendMessagesCallBack callBack) {
-    tempCachePath = getDownloadLocalCacheFilePath();
-    if (TextUtils.isEmpty(getContentString())) {  //没有content说明上传还没有成功，需要先上传文件
+
+    tempCachePath = getUploadLocalFilePath();
+    Log.e("xie", "ImFileMessage prepareSend tempCachePath:"+tempCachePath);
+    if (TextUtils.isEmpty(getContentString())) {
       uploadFile(new ImFileMessage.uploadFileCallback() {
         @Override
         public void onUploadFinish(final boolean success, String err) {
@@ -305,7 +305,7 @@ public abstract class ImFileMessage extends ImMessage {
 
   protected void saveTempSendData(String originLocalFilePath, String ext) {
     MessageData data = new MessageData();
-    String cachePath = getDownloadLocalCacheFilePath();
+    String cachePath = getDownloadLocalFilePath();
     if (TextUtils.isEmpty(cachePath) || !new File(cachePath).exists()) {
       cachePath = originLocalFilePath;
     }
@@ -331,7 +331,7 @@ public abstract class ImFileMessage extends ImMessage {
 
   @Override
   public void onMessageRemoved() {
-    FileUtils.deleteFile(getDownloadLocalCacheFilePath());  //删除本地缓存，不能用getLocalFilePath，那样有可能删除源文件
+    FileUtils.deleteFile(getDownloadLocalFilePath());  //删除本地缓存，不能用getLocalFilePath，那样有可能删除源文件
     deleteTempSendData();
   }
 }

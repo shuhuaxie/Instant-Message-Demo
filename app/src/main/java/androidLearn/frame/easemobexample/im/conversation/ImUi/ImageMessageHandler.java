@@ -13,6 +13,7 @@ import androidLearn.frame.easemobExample.utils.PathUtils;
 import androidLearn.frame.easemobExample.widget.MessageAdapter;
 import androidLearn.frame.easemobExample.widget.PortraitView;
 import android.graphics.Bitmap;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -72,7 +73,7 @@ public class ImageMessageHandler extends BaseMessageUIHandler implements View.On
       ImImageMessage msg = (ImImageMessage) message;
 
       boolean hasResized = false;
-      if(msg.getThumbnailUri().startsWith("file://")){  //如果是本地文件
+      if(!TextUtils.isEmpty(msg.getThumbnailUri()) && msg.getThumbnailUri().startsWith("file://")){  //如果是本地文件
         BitmapUtils.Size size = BitmapUtils.getImageSize(msg.getThumbnailUri().substring(7));
         if(size.width > 0 && size.width > 0){
           setSize(holder.iv_image, (int)size.width, (int)size.height);

@@ -63,15 +63,17 @@ public class ImAudioMessage extends ImFileMessage {
     }
 
     String content = getContentString();
-    Log.e("xie", "ImAudioMessage:" + content);
     if (!TextUtils.isEmpty(content)) {
       mData = new Gson().fromJson(content, AudioData.class);
     }
-    final String localFileUri = getDownloadLocalCacheFilePath();
-    File downFile = new File(localFileUri);
-    if (downFile == null || !downFile.exists()) {
-      downloadFile();
+    if (mData != null && !TextUtils.isEmpty(mData.url)) {
+      final String localFileUri = getDownloadLocalFilePath();
+      File downFile = new File(localFileUri);
+      if (downFile == null || !downFile.exists()) {
+        downloadFile();
+      }
     }
+
     if (mData == null) {
       mData = new AudioData();
       //如果是发送消息，尝试恢复内容
@@ -113,7 +115,10 @@ public class ImAudioMessage extends ImFileMessage {
   }
 
   public String getAudioUri() {
+    File file = new File (getUploadLocalFilePath());
+    if (file.exists())
     return getUploadLocalFilePath();
+    return getDownloadLocalFilePath();
   }
 
   @Override
@@ -147,13 +152,12 @@ public class ImAudioMessage extends ImFileMessage {
 
   @Override
   protected String getDownloadUrl() {
-    Log.e("xie", "url:" + mData.url);
     return mData.url;
   }
 
   @Override
   protected String getUploadLocalFilePath() {
-    String cachePath = PathUtils.getAudioPathByMessageId(getConversationId(), getMessageId());
+    String cachePath = PathUtils.getAudioPathByMessageId(getConversationId(), "upload_" + getMessageId());
     if ((TextUtils.isEmpty(cachePath) || !new File(cachePath).exists()) && isSendMessage()) {
 //      MessageData data = getMessageData();
 //      if (data != null) {
@@ -165,13 +169,12 @@ public class ImAudioMessage extends ImFileMessage {
   }
 
   @Override
-  protected String getDownloadLocalCacheFilePath() {
-    return PathUtils.getAudioPathByMessageId(getConversationId(), getMessageId());
+  protected String getDownloadLocalFilePath() {
+    return PathUtils.getAudioPathByMessageId(getConversationId(), "download_" + getMessageId());
   }
 
   @Override
   public void onMessageReceived() {
-    Log.e("xie", "onMessageReceived");
     downloadFile();
   }
 
